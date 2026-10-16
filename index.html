@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOLOGÍA - Sistema Tegumentario: Epidermis, Dermis, Hipodermis, Receptores y Anexos (UCCuyo)</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- KaTeX for ultra-fast LaTeX formulas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+    <!-- FontAwesome for biomedical icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts: Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        derma: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#436600',
+                            600: '#324d00',
+                            700: '#263b00',
+                            800: '#1b2a00',
+                            900: '#111b00',
+                        },
+                        vascular: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            500: '#e11d48',
+                            600: '#be123c',
+                            700: '#9f1239',
+                        },
+                        he: {
+                            eosin: '#f472b6',
+                            hematoxylin: '#6366f1',
+                            keratin: '#db2777',
+                            basal: '#4338ca'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f7f9f6;
+        }
+
+        /* Paleta Institucional Verde Oliva UCCuyo */
+        .text-accent { color: #436600; }
+        .bg-accent { background-color: #436600; }
+        .bg-accent-hover:hover { background-color: #324d00; }
+        .bg-accent-light { background-color: #f1f6eb; }
+        .border-accent { border-color: #436600; }
+
+        .text-primary { color: #436600; }
+        .bg-primary { background-color: #436600; }
+        .bg-primary-dark { background-color: #324d00; }
+        .border-primary { border-color: #436600; }
+
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .atlas-grid-bg {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .svg-interactive-layer {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .svg-interactive-layer:hover {
+            filter: brightness(1.06) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Sweat drop animation */
+        @keyframes sweatDrop {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            40% { opacity: 0.9; }
+            100% { transform: translateY(-28px) scale(1.1); opacity: 0; }
+        }
+        .animate-sweat {
+            animation: sweatDrop 1.8s infinite ease-out;
+        }
+
+        /* Heat wave animation */
+        @keyframes heatWave {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-10px); opacity: 0.85; }
+        }
+        .animate-heat {
+            animation: heatWave 1.5s infinite ease-in-out;
+        }
+
+        /* Pulse animation for receptors */
+        @keyframes receptorPulse {
+            0% { r: 6px; opacity: 0.9; }
+            100% { r: 22px; opacity: 0; }
+        }
+        .receptor-ripple {
+            animation: receptorPulse 1.4s infinite ease-out;
+        }
+
+        /* Desquamation floating animation */
+        @keyframes desquamate {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.85; }
+            100% { transform: translate(15px, -24px) rotate(12deg); opacity: 0; }
+        }
+        .animate-desquamate {
+            animation: desquamate 3.2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-slate-800">
+
+    <!-- Cabecera Institucional UCCuyo -->
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    B
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-gray-800 tracking-wide uppercase">BIOLOGÍA</h1>
+                    <p class="text-xs text-gray-500 font-semibold">PreMédico (Facultad de Cs. Médicas - UCCuyo)</p>
+                </div>
+            </div>
+            <!-- Botón Guía de Uso -->
+            <button onclick="openTutorial()" class="flex items-center gap-1.5 px-3 py-1.5 bg-accent text-white text-xs font-semibold rounded-lg shadow-sm hover:opacity-90 transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Guía de Uso
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal con Menú Lateral y Módulos -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col lg:flex-row gap-6">
+
+        <!-- Menú de Navegación Lateral -->
+        <nav class="w-full lg:w-72 flex flex-row lg:flex-col gap-2 bg-white p-3.5 rounded-2xl shadow-sm border border-gray-200 overflow-x-auto lg:overflow-x-visible whitespace-nowrap lg:whitespace-normal sticky top-20 h-fit shrink-0">
+            <button onclick="switchModule('mod1')" id="tab-mod1" class="nav-btn bg-accent text-white flex-1 lg:flex-none text-left py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2.5 shadow-sm">
+                <i class="fa-solid fa-layer-group text-sm w-4 text-center"></i>
+                <span>1. Visión General & Fisiología</span>
+            </button>
+            <button onclick="switchModule('mod2')" id="tab-mod2" class="nav-btn text-gray-700 hover:bg-gray-100 flex-1 lg:flex-none text-left py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2.5">
+                <i class="fa-solid fa-dna text-sm w-4 text-center"></i>
+                <span>2. Epidermis & Citología</span>
+            </button>
+            <button onclick="switchModule('mod3')" id="tab-mod3" class="nav-btn text-gray-700 hover:bg-gray-100 flex-1 lg:flex-none text-left py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2.5">
+                <i class="fa-solid fa-fingerprint text-sm w-4 text-center"></i>
+                <span>3. Dermis, UDE & Hipodermis</span>
+            </button>
+            <button onclick="switchModule('mod4')" id="tab-mod4" class="nav-btn text-gray-700 hover:bg-gray-100 flex-1 lg:flex-none text-left py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2.5">
+                <i class="fa-solid fa-wave-square text-sm w-4 text-center"></i>
+                <span>4. Receptores Sensoriales</span>
+            </button>
+            <button onclick="switchModule('mod5')" id="tab-mod5" class="nav-btn text-gray-700 hover:bg-gray-100 flex-1 lg:flex-none text-left py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2.5">
+                <i class="fa-solid fa-vial-circle-check text-sm w-4 text-center"></i>
+                <span>5. Anexos Cutáneos</span>
+            </button>
+            </nav>
+
+        <!-- Contenedor Dinámico de Módulos -->
+        <div class="flex-1 w-full space-y-6 min-w-0">
+<section id="mod1" class="module-section space-y-8">
+            
+            <!-- Module Intro Banner -->
+            <div class="bg-gradient-to-r from-derma-900 via-derma-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg relative overflow-hidden">
+                <div class="relative z-10 max-w-3xl space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-derma-200 text-xs font-semibold">
+                        <i class="fa-solid fa-book-medical"></i> Módulo 1 · Anatomía Macroscópica y Fisiología Clínica
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold tracking-tight">
+                        Organización Estructural y Homeostasis Tegumentaria
+                    </h2>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        La piel (cutis o tegumento) constituye el órgano más extenso de la economía humana, representando entre el $7\text{--}8\%$ del peso corporal total ($\approx 4.5\text{--}5\text{ kg}$) y abarcando una superficie de $1.5\text{--}2\text{ m}^2$. Se organiza en dos capas constitutivas verdaderas: la <strong>epidermis</strong> superficial (epitelial, ectodérmica) y la <strong>dermis</strong> profunda (conectiva, mesodérmica), apoyadas sobre la <strong>hipodermis</strong> o tejido celular subcutáneo subyacente.
+                    </p>
+                </div>
+                <i class="fa-solid fa-shield-virus absolute -right-6 -bottom-6 text-9xl text-white/5 pointer-events-none"></i>
+            </div>
+
+            <!-- Interactive Block 1A: 3D Cross-Section Explorer -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left Column: Interactive 3D SVG Histological Cube -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2 bg-slate-50/60">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-cube text-derma-600"></i>
+                                Corte Histológico Tridimensional Navegable
+                            </h3>
+                            <p class="text-xs text-slate-500">Haz clic sobre cada capa del bloque tisular o usa los botones para inspeccionar su arquitectura.</p>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="selectSkinLayer('all')" id="btn-layer-all" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-derma-600 text-white transition">Vista Global</button>
+                            <button onclick="selectSkinLayer('epidermis')" id="btn-layer-epidermis" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Epidermis</button>
+                            <button onclick="selectSkinLayer('dermis')" id="btn-layer-dermis" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Dermis</button>
+                            <button onclick="selectSkinLayer('hipodermis')" id="btn-layer-hipodermis" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Hipodermis</button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-6 atlas-grid-bg flex flex-col items-center justify-center relative">
+                        <svg id="svg-3d-skin" viewBox="0 0 650 430" class="w-full max-w-xl h-auto select-none">
+                            <defs>
+                                <linearGradient id="grad-epi-front" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#9d174d"/>
+                                    <stop offset="35%" stop-color="#db2777"/>
+                                    <stop offset="100%" stop-color="#6366f1"/>
+                                </linearGradient>
+                                <linearGradient id="grad-epi-top" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#f472b6"/>
+                                    <stop offset="100%" stop-color="#be185d"/>
+                                </linearGradient>
+                                <linearGradient id="grad-dermis-front" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#fbcfe8"/>
+                                    <stop offset="35%" stop-color="#f9a8d4"/>
+                                    <stop offset="100%" stop-color="#f43f5e"/>
+                                </linearGradient>
+                                <linearGradient id="grad-hipo-front" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#fef08a"/>
+                                    <stop offset="100%" stop-color="#f59e0b"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Hair Shaft protruding from top -->
+                            <path d="M 275 85 Q 268 35 288 10" fill="none" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/>
+                            <text x="300" y="25" font-size="11" font-weight="600" fill="#334155">Tallo Piloso (Queratina dura)</text>
+
+                            <!-- LAYER 3: HIPODERMIS (Subcutis) -->
+                            <g id="svg-grp-hipodermis" onclick="selectSkinLayer('hipodermis')" class="svg-interactive-layer">
+                                <!-- Front Face -->
+                                <path d="M 80 285 L 430 285 L 430 390 L 80 390 Z" fill="url(#grad-hipo-front)" stroke="#d97706" stroke-width="2"/>
+                                <!-- Side 3D Face -->
+                                <path d="M 430 285 L 550 225 L 550 330 L 430 390 Z" fill="#eab308" stroke="#ca8a04" stroke-width="2"/>
+                                
+                                <!-- Adipocyte lobules -->
+                                <g fill="#fef9c3" stroke="#ca8a04" stroke-width="1.2">
+                                    <circle cx="115" cy="315" r="16"/><circle cx="148" cy="320" r="18"/><circle cx="182" cy="312" r="15"/>
+                                    <circle cx="130" cy="352" r="19"/><circle cx="168" cy="355" r="17"/><circle cx="205" cy="345" r="18"/>
+                                    <circle cx="245" cy="318" r="17"/><circle cx="280" cy="350" r="19"/><circle cx="320" cy="320" r="18"/>
+                                    <circle cx="355" cy="352" r="17"/><circle cx="395" cy="325" r="19"/><circle cx="390" cy="362" r="15"/>
+                                    <!-- 3D Side Adipocytes -->
+                                    <ellipse cx="465" cy="300" rx="14" ry="11" transform="rotate(-25 465 300)"/>
+                                    <ellipse cx="505" cy="280" rx="15" ry="12" transform="rotate(-25 505 280)"/>
+                                    <ellipse cx="485" cy="335" rx="16" ry="11" transform="rotate(-25 485 335)"/>
+                                    <ellipse cx="525" cy="312" rx="14" ry="10" transform="rotate(-25 525 312)"/>
+                                </g>
+                                <!-- Deep Subcutaneous Plexus Vessels -->
+                                <path d="M 80 372 Q 250 360 430 372" fill="none" stroke="#e11d48" stroke-width="5"/>
+                                <path d="M 80 380 Q 250 368 430 380" fill="none" stroke="#0284c7" stroke-width="5"/>
+                                
+                                <!-- Label Pin -->
+                                <rect x="92" y="294" width="175" height="22" rx="4" fill="#713f12" fill-opacity="0.88"/>
+                                <text x="100" y="309" font-size="11" font-weight="700" fill="#fef08a">3. HIPODERMIS (Tej. Subcutáneo)</text>
+                            </g>
+
+                            <!-- LAYER 2: DERMIS (Papilar + Reticular) -->
+                            <g id="svg-grp-dermis" onclick="selectSkinLayer('dermis')" class="svg-interactive-layer">
+                                <!-- Front Face with Dermal Papillae on top -->
+                                <path d="M 80 140 
+                                         Q 100 120 120 140 Q 140 160 160 140 Q 180 120 200 140 Q 220 160 240 140 Q 260 120 280 140 Q 300 160 320 140 Q 340 120 360 140 Q 380 160 400 140 L 430 140
+                                         L 430 285 L 80 285 Z" 
+                                      fill="url(#grad-dermis-front)" stroke="#e11d48" stroke-width="2"/>
+                                <!-- Side 3D Face -->
+                                <path d="M 430 140 L 550 80 L 550 225 L 430 285 Z" fill="#f472b6" stroke="#db2777" stroke-width="2"/>
+
+                                <!-- Boundary line between Papillary and Reticular Dermis -->
+                                <path d="M 82 180 L 428 180 L 548 120" fill="none" stroke="#be123c" stroke-width="1.5" stroke-dasharray="5,5"/>
+                                <text x="310" y="173" font-size="10" font-weight="600" fill="#881337">Capa Papilar (Laxo)</text>
+                                <text x="310" y="196" font-size="10" font-weight="600" fill="#881337">Capa Reticular (Denso Irregular)</text>
+
+                                <!-- Collagen & Elastic Fiber Mesh -->
+                                <g stroke="#be185d" stroke-width="1.2" opacity="0.35">
+                                    <line x1="100" y1="205" x2="190" y2="235"/><line x1="180" y1="200" x2="110" y2="245"/>
+                                    <line x1="290" y1="215" x2="395" y2="255"/><line x1="390" y1="210" x2="305" y2="265"/>
+                                    <line x1="450" y1="170" x2="530" y2="155"/><line x1="460" y1="210" x2="535" y2="175"/>
+                                </g>
+
+                                <!-- Hair Follicle Invagination & Sebaceous Gland -->
+                                <path d="M 268 135 L 252 260 C 248 278 276 280 274 260 L 284 135 Z" fill="#4f46e5" stroke="#312e81" stroke-width="1.5"/>
+                                <path d="M 275 85 L 263 265" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Sebaceous gland -->
+                                <path d="M 278 175 C 310 165 315 205 276 198 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+                                <!-- Arrector Pili Muscle -->
+                                <path d="M 256 225 L 195 152 L 204 148 L 260 215 Z" fill="#e11d48" stroke="#9f1239" stroke-width="1"/>
+
+                                <!-- Eccrine Sweat Gland -->
+                                <path d="M 365 255 C 350 245 385 235 370 262 C 355 275 388 265 372 250 L 372 135" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round"/>
+
+                                <!-- Capillary Loops in Dermal Papillae -->
+                                <path d="M 110 285 L 110 142 C 110 132 118 132 118 142 L 118 285" fill="none" stroke="#e11d48" stroke-width="2"/>
+                                <path d="M 188 285 L 188 142 C 188 132 196 132 196 142 L 196 285" fill="none" stroke="#e11d48" stroke-width="2"/>
+
+                                <!-- Pacinian Corpuscle deep in dermis -->
+                                <ellipse cx="155" cy="255" rx="16" ry="11" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.5"/>
+                                <ellipse cx="155" cy="255" rx="10" ry="6" fill="none" stroke="#0369a1" stroke-width="1"/>
+                                <circle cx="155" cy="255" r="2" fill="#0369a1"/>
+
+                                <!-- Label Pin -->
+                                <rect x="92" y="188" width="145" height="22" rx="4" fill="#881337" fill-opacity="0.9"/>
+                                <text x="100" y="203" font-size="11" font-weight="700" fill="#ffe4e6">2. DERMIS (Estroma)</text>
+                            </g>
+
+                            <!-- LAYER 1: EPIDERMIS -->
+                            <g id="svg-grp-epidermis" onclick="selectSkinLayer('epidermis')" class="svg-interactive-layer">
+                                <!-- Top Surface 3D -->
+                                <path d="M 80 95 L 200 35 L 550 35 L 430 95 Z" fill="url(#grad-epi-top)" stroke="#831843" stroke-width="2"/>
+                                <!-- Epidermal Ridges Surface Lines -->
+                                <path d="M 130 70 L 480 70 M 165 52 L 515 52" stroke="#fbcfe8" stroke-width="1" opacity="0.5"/>
+                                
+                                <!-- Front Face with Interdigitating Epidermal Ridges -->
+                                <path d="M 80 95 L 430 95 L 430 140 
+                                         L 400 140 Q 380 160 360 140 Q 340 120 320 140 Q 300 160 280 140 Q 260 120 240 140 Q 220 160 200 140 Q 180 120 160 140 Q 140 160 120 140 Q 100 120 80 140 Z" 
+                                      fill="url(#grad-epi-front)" stroke="#4c1d95" stroke-width="2"/>
+                                
+                                <!-- Side 3D Face -->
+                                <path d="M 430 95 L 550 35 L 550 80 L 430 140 Z" fill="#831843" stroke="#500724" stroke-width="2"/>
+
+                                <!-- Label Pin -->
+                                <rect x="92" y="100" width="160" height="22" rx="4" fill="#311042" fill-opacity="0.9"/>
+                                <text x="100" y="115" font-size="11" font-weight="700" fill="#fbcfe8">1. EPIDERMIS (Epitelio)</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right Column: Dynamic Layer Inspector Panel -->
+                <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex flex-col justify-between">
+                    <div id="skin-layer-info" class="space-y-4">
+                        <!-- Dynamically populated by selectSkinLayer() -->
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 bg-derma-50/70 rounded-xl p-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-derma-800 flex items-center gap-1.5 mb-2">
+                            <i class="fa-solid fa-Graduation-cap"></i> Clave de Examen (Ingreso UCCuyo)
+                        </h4>
+                        <p id="skin-layer-exam-tip" class="text-xs text-slate-700 leading-relaxed">
+                            Las únicas dos capas constitutivas verdaderas de la piel son la <strong>epidermis</strong> y la <strong>dermis</strong>. La hipodermis (tejido celular subcutáneo) no forma parte estricta del órgano cutáneo, aunque funciona de manera integrada como fascia superficial de anclaje, amortiguación mecánica y reserva energética de triacilglicéridos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Block 1B: Thermoregulation & Physiological Functions -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- Left: Interactive Thermoregulation Simulator -->
+                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-5">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-vascular-600">Simulador Hemodinámico</span>
+                            <h3 class="text-lg font-display font-bold text-slate-900">Termorregulación Cutánea Activa</h3>
+                        </div>
+                        <span id="thermo-badge" class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-100 text-emerald-800">
+                            Termoneutralidad ($24^\circ\text{C}$)
+                        </span>
+                    </div>
+
+                    <!-- Temperature Slider -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-2">
+                        <div class="flex justify-between text-xs font-semibold text-slate-600">
+                            <span class="text-sky-700"><i class="fa-solid fa-snowflake"></i> Frío Ambiental ($5^\circ\text{C}$)</span>
+                            <span class="text-emerald-700">Basal ($24^\circ\text{C}$)</span>
+                            <span class="text-vascular-600"><i class="fa-solid fa-fire"></i> Calor / Ejercicio ($40^\circ\text{C}$)</span>
+                        </div>
+                        <input type="range" id="thermo-slider" min="5" max="40" value="24" oninput="updateThermoregulation(this.value)" 
+                               class="w-full h-2.5 bg-gradient-to-r from-sky-500 via-emerald-400 to-rose-600 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between items-center pt-1">
+                            <span class="text-xs text-slate-500">Desliza para modificar la temperatura ambiental</span>
+                            <div class="flex gap-1.5">
+                                <button onclick="setThermoPreset(8)" class="px-2 py-0.5 text-xs rounded bg-sky-100 text-sky-800 font-medium hover:bg-sky-200">Hipotermia</button>
+                                <button onclick="setThermoPreset(24)" class="px-2 py-0.5 text-xs rounded bg-emerald-100 text-emerald-800 font-medium hover:bg-emerald-200">Normotermia</button>
+                                <button onclick="setThermoPreset(38)" class="px-2 py-0.5 text-xs rounded bg-rose-100 text-rose-800 font-medium hover:bg-rose-200">Hipertermia</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Vascular SVG -->
+                    <div class="relative rounded-xl overflow-hidden border border-slate-200 bg-slate-900 p-3">
+                        <svg id="svg-thermo" viewBox="0 0 500 220" class="w-full h-auto">
+                            <!-- Skin Background -->
+                            <rect x="0" y="0" width="500" height="35" fill="#1e293b"/>
+                            <rect x="0" y="35" width="500" height="30" fill="#be185d"/>
+                            <rect x="0" y="65" width="500" height="155" fill="#fff1f2"/>
+
+                            <!-- Heat radiation arrows (Shown in hot mode) -->
+                            <g id="thermo-heat-waves" opacity="0.2" class="animate-heat">
+                                <path d="M 90 30 Q 95 15 90 5" fill="none" stroke="#fb7185" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M 190 30 Q 195 15 190 5" fill="none" stroke="#fb7185" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M 290 30 Q 295 15 290 5" fill="none" stroke="#fb7185" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M 390 30 Q 395 15 390 5" fill="none" stroke="#fb7185" stroke-width="2.5" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- Sweat Droplets (Diaforesis) -->
+                            <g id="thermo-sweat-drops" opacity="0" class="animate-sweat">
+                                <circle cx="140" cy="30" r="4" fill="#38bdf8"/>
+                                <circle cx="245" cy="28" r="4.5" fill="#38bdf8"/>
+                                <circle cx="350" cy="30" r="4" fill="#38bdf8"/>
+                            </g>
+
+                            <!-- Deep Subpapillary & Cutaneous Plexus -->
+                            <path d="M 20 190 L 480 190" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+                            <text x="30" y="212" font-size="10" font-weight="700" fill="#881337">Plexo Vascular Profundo (Retención de Calor Central: $37^\circ\text{C}$)</text>
+
+                            <!-- Shunt Arteriovenoso (Glomus) -->
+                            <path id="thermo-shunt" d="M 150 190 L 150 140 L 350 140 L 350 190" fill="none" stroke="#f43f5e" stroke-width="4" stroke-dasharray="4,2"/>
+
+                            <!-- Superficial Papillary Loops (Variable caliber) -->
+                            <path id="thermo-capillaries" d="M 70 190 L 70 85 C 70 68 110 68 110 85 L 110 190
+                                                             M 210 190 L 210 85 C 210 68 250 68 250 85 L 250 190
+                                                             M 360 190 L 360 85 C 360 68 400 68 400 85 L 400 190" 
+                                  fill="none" stroke="#e11d48" stroke-width="5" class="transition-all duration-500"/>
+
+                            <!-- Sweat Gland Ducts -->
+                            <path d="M 140 175 C 128 165 152 155 140 145 L 140 35" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+                            <path d="M 245 175 C 233 165 257 155 245 145 L 245 35" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+                            <path d="M 350 175 C 338 165 362 155 350 145 L 350 35" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+
+                            <text x="15" y="54" font-size="11" font-weight="700" fill="#ffffff">Epidermis</text>
+                            <text x="15" y="84" font-size="11" font-weight="700" fill="#9f1239">Asas Capilares Papilares</text>
+                        </svg>
+                    </div>
+
+                    <!-- Dynamic Telemetry Readout -->
+                    <div id="thermo-explanation" class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs sm:text-sm space-y-2">
+                        <!-- Updated by JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Clinical-Physiological Functions Explorer -->
+                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 flex flex-col justify-between space-y-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-derma-600">Fisiología Integrada</span>
+                        <h3 class="text-lg font-display font-bold text-slate-900">Funciones Clínico-Fisiológicas Esenciales</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Selecciona cada función para analizar sus mecanismos bioquímicos y celulares:</p>
+                    </div>
+
+                    <!-- Function Selector Pills -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        <button onclick="selectPhysioFunction('barrera')" id="fn-btn-barrera" class="p-2.5 rounded-xl border text-left transition bg-derma-700 text-white border-derma-700 shadow-sm">
+                            <i class="fa-solid fa-shield-halved text-base mb-1 block"></i>
+                            <span class="text-xs font-bold block">Triple Barrera</span>
+                        </button>
+                        <button onclick="selectPhysioFunction('vitd')" id="fn-btn-vitd" class="p-2.5 rounded-xl border text-left transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                            <i class="fa-solid fa-sun text-base mb-1 block text-amber-500"></i>
+                            <span class="text-xs font-bold block">Vitamina D y $\text{Ca}^{2+}$</span>
+                        </button>
+                        <button onclick="selectPhysioFunction('excrecion')" id="fn-btn-excrecion" class="p-2.5 rounded-xl border text-left transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                            <i class="fa-solid fa-arrows-up-down text-base mb-1 block text-emerald-600"></i>
+                            <span class="text-xs font-bold block">Excreción/Absorción</span>
+                        </button>
+                        <button onclick="selectPhysioFunction('sensibilidad')" id="fn-btn-sensibilidad" class="p-2.5 rounded-xl border text-left transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100">
+                            <i class="fa-solid fa-bolt text-base mb-1 block text-purple-600"></i>
+                            <span class="text-xs font-bold block">Sensibilidad</span>
+                        </button>
+                    </div>
+
+                    <!-- Function Detailed Content Container -->
+                    <div id="physio-function-content" class="flex-1 bg-slate-50 rounded-xl p-5 border border-slate-200/90 space-y-3">
+                        <!-- Dynamically rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MÓDULO 2: EPIDERMIS (HISTOLOGÍA, ESTRATOS Y POBLACIONES CELULARES)        -->
+        <!-- ========================================================================= -->
+        <section id="mod2" class="module-section hidden space-y-8">
+            
+            <!-- Module 2 Header -->
+            <div class="bg-gradient-to-r from-indigo-950 via-purple-900 to-rose-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+                <div class="max-w-3xl space-y-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-pink-200 text-xs font-semibold">
+                        <i class="fa-solid fa-microscope"></i> Módulo 2 · Epitelio Plano Estratificado Queratinizado
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold">
+                        Epidermis: Citodiferenciación, Estratos y Linajes Celulares
+                    </h2>
+                    <p class="text-pink-100/90 text-sm sm:text-base leading-relaxed">
+                        Derivada del <strong>ectodermo superficial</strong>, la epidermis es un tejido epitelial <strong>avascular</strong> que depende exclusivamente de la difusión de oxígeno y nutrientes desde las asas capilares de la dermis papilar a través de la membrana basal. Su espesor varía entre piel fina ($0.07\text{--}0.12\text{ mm}$, con $4$ estratos) y piel gruesa ($0.8\text{--}1.4\text{ mm}$ en palmas y plantas, con $5$ estratos).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Epidermal Strata Microscope -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left: High-Mag Interactive H&E Epidermis Diagram -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3 bg-slate-50/70">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg">
+                                Citoarquitectura Epidérmica (Superficie $\leftrightarrow$ Profundidad)
+                            </h3>
+                            <p class="text-xs text-slate-500">Selecciona un estrato en el corte histológico y alterna entre Piel Gruesa y Piel Fina.</p>
+                        </div>
+                        <!-- Toggle Thick vs Thin Skin -->
+                        <div class="inline-flex rounded-lg p-1 bg-slate-200 text-xs font-semibold">
+                            <button onclick="toggleSkinThickness('gruesa')" id="btn-skin-gruesa" class="px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-sm transition">
+                                Piel Gruesa (5 Estratos)
+                            </button>
+                            <button onclick="toggleSkinThickness('fina')" id="btn-skin-fina" class="px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition">
+                                Piel Fina (4 Estratos)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-4 sm:p-6 atlas-grid-bg">
+                        <svg id="svg-epidermis-strata" viewBox="0 0 600 430" class="w-full h-auto select-none">
+                            <!-- Desquamating Corneocytes Animation at top -->
+                            <g class="animate-desquamate">
+                                <rect x="140" y="12" width="55" height="6" rx="3" fill="#be185d" opacity="0.7"/>
+                                <rect x="290" y="8" width="65" height="6" rx="3" fill="#9d174d" opacity="0.6"/>
+                                <rect x="420" y="14" width="50" height="6" rx="3" fill="#be185d" opacity="0.75"/>
+                            </g>
+                            <text x="20" y="20" font-size="11" font-weight="700" fill="#831843">↻ Descamación fisiológica continua (Corneocitos anucleados)</text>
+
+                            <!-- 5. ESTRATO CÓRNEO -->
+                            <g id="stratum-corneo" onclick="selectStratum('corneo')" class="svg-interactive-layer">
+                                <rect x="20" y="30" width="560" height="68" rx="6" fill="#fbcfe8" stroke="#be185d" stroke-width="2"/>
+                                <!-- Flattened anucleated scales -->
+                                <g fill="#db2777" opacity="0.65">
+                                    <rect x="35" y="40" width="90" height="7" rx="3"/><rect x="135" y="40" width="110" height="7" rx="3"/><rect x="255" y="40" width="95" height="7" rx="3"/><rect x="360" y="40" width="120" height="7" rx="3"/>
+                                    <rect x="55" y="53" width="115" height="7" rx="3"/><rect x="180" y="53" width="100" height="7" rx="3"/><rect x="290" y="53" width="125" height="7" rx="3"/><rect x="425" y="53" width="90" height="7" rx="3"/>
+                                    <rect x="35" y="66" width="100" height="8" rx="3"/><rect x="145" y="66" width="120" height="8" rx="3"/><rect x="275" y="66" width="110" height="8" rx="3"/><rect x="395" y="66" width="115" height="8" rx="3"/>
+                                    <rect x="45" y="80" width="130" height="8" rx="3"/><rect x="185" y="80" width="115" height="8" rx="3"/><rect x="310" y="80" width="130" height="8" rx="3"/>
+                                </g>
+                                <rect x="435" y="38" width="135" height="24" rx="4" fill="#831843"/>
+                                <text x="445" y="54" font-size="11" font-weight="700" fill="#ffffff">5. Estrato Córneo</text>
+                            </g>
+
+                            <!-- 4. ESTRATO LÚCIDO (Toggleable for thick/thin skin) -->
+                            <g id="stratum-lucido" onclick="selectStratum('lucido')" class="svg-interactive-layer">
+                                <rect x="20" y="102" width="560" height="36" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="2" stroke-dasharray="4,2"/>
+                                <rect x="28" y="108" width="544" height="24" rx="4" fill="#f472b6" opacity="0.45"/>
+                                <text x="40" y="124" font-size="11" font-weight="600" fill="#831843">Zona homogénea eosinófila refringente (Eleidina · Exclusivo Piel Gruesa)</text>
+                                <rect x="435" y="108" width="135" height="24" rx="4" fill="#9d174d"/>
+                                <text x="445" y="124" font-size="11" font-weight="700" fill="#ffffff">4. Estrato Lúcido</text>
+                            </g>
+
+                            <!-- 3. ESTRATO GRANULOSO -->
+                            <g id="stratum-granuloso" onclick="selectStratum('granuloso')" class="svg-interactive-layer">
+                                <rect x="20" y="142" width="560" height="62" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+                                <!-- Flattened diamond cells with intense basophilic keratohyalin granules -->
+                                <g fill="#c4b5fd" stroke="#6d28d9" stroke-width="1.5">
+                                    <polygon points="40,172 95,155 150,172 95,189"/>
+                                    <polygon points="155,172 210,155 265,172 210,189"/>
+                                    <polygon points="270,172 325,155 380,172 325,189"/>
+                                    <polygon points="385,172 425,158 465,172 425,186"/>
+                                </g>
+                                <!-- Keratohyalin granules -->
+                                <g fill="#3b0764">
+                                    <circle cx="80" cy="172" r="2.5"/><circle cx="95" cy="168" r="3"/><circle cx="110" cy="174" r="2.5"/><circle cx="98" cy="178" r="2"/>
+                                    <circle cx="195" cy="170" r="2.5"/><circle cx="210" cy="173" r="3.5"/><circle cx="225" cy="171" r="2.5"/>
+                                    <circle cx="310" cy="172" r="2.5"/><circle cx="325" cy="169" r="3"/><circle cx="340" cy="175" r="2.5"/>
+                                </g>
+                                <rect x="435" y="150" width="135" height="24" rx="4" fill="#5b21b6"/>
+                                <text x="442" y="166" font-size="11" font-weight="700" fill="#ffffff">3. Estrato Granuloso</text>
+                            </g>
+
+                            <!-- 2. ESTRATO ESPINOSO (Malpighi) -->
+                            <g id="stratum-espinoso" onclick="selectStratum('espinoso')" class="svg-interactive-layer">
+                                <rect x="20" y="208" width="560" height="110" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="2"/>
+                                <!-- Polyhedral keratinocytes with desmosome spines -->
+                                <g fill="#a5b4fc" stroke="#4338ca" stroke-width="1.5">
+                                    <polygon points="55,230 95,225 110,255 80,275 45,260"/>
+                                    <polygon points="125,228 168,225 180,258 150,275 118,255"/>
+                                    <polygon points="195,230 240,225 252,258 220,275 188,255"/>
+                                    <polygon points="268,228 312,225 325,258 295,275 260,255"/>
+                                    <polygon points="340,230 385,225 398,258 368,275 335,255"/>
+                                    <!-- Second row -->
+                                    <polygon points="85,278 130,272 142,302 110,312 75,300"/>
+                                    <polygon points="160,278 205,272 218,302 185,312 152,300"/>
+                                    <polygon points="235,278 280,272 292,302 260,312 228,300"/>
+                                    <polygon points="310,278 355,272 368,302 335,312 302,300"/>
+                                </g>
+                                <!-- Nuclei -->
+                                <g fill="#312e81">
+                                    <circle cx="78" cy="250" r="8"/><circle cx="150" cy="250" r="8"/><circle cx="220" cy="250" r="8"/><circle cx="292" cy="250" r="8"/><circle cx="366" cy="250" r="8"/>
+                                    <circle cx="110" cy="292" r="8"/><circle cx="185" cy="292" r="8"/><circle cx="260" cy="292" r="8"/><circle cx="335" cy="292" r="8"/>
+                                </g>
+                                <!-- Desmosome intercellular bridges (Spines) -->
+                                <g stroke="#312e81" stroke-width="1.5">
+                                    <line x1="106" y1="242" x2="122" y2="242"/><line x1="108" y1="250" x2="120" y2="250"/>
+                                    <line x1="176" y1="242" x2="192" y2="242"/><line x1="178" y1="250" x2="190" y2="250"/>
+                                    <line x1="248" y1="242" x2="264" y2="242"/><line x1="250" y1="250" x2="262" y2="250"/>
+                                </g>
+                                <!-- Langerhans Cell (Dendritic immune cell in spinosum) -->
+                                <path d="M 405 275 C 390 260 390 290 405 275 L 385 255 M 405 275 L 425 255 M 405 275 L 415 298" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round"/>
+                                <circle cx="405" cy="275" r="9" fill="#14b8a6" stroke="#115e59" stroke-width="1.5"/>
+
+                                <rect x="435" y="218" width="135" height="24" rx="4" fill="#3730a3"/>
+                                <text x="442" y="234" font-size="11" font-weight="700" fill="#ffffff">2. Estrato Espinoso</text>
+                            </g>
+
+                            <!-- 1. ESTRATO BASAL (Germinativo) -->
+                            <g id="stratum-basal" onclick="selectStratum('basal')" class="svg-interactive-layer">
+                                <rect x="20" y="322" width="560" height="68" rx="6" fill="#c7d2fe" stroke="#312e81" stroke-width="2.5"/>
+                                <!-- Monolayer of cuboidal/columnar mitotic stem cells -->
+                                <g fill="#818cf8" stroke="#1e1b4b" stroke-width="1.5">
+                                    <rect x="35" y="330" width="38" height="48" rx="5"/>
+                                    <rect x="78" y="330" width="38" height="48" rx="5"/>
+                                    <!-- Melanocyte with dendrites -->
+                                    <rect x="122" y="334" width="42" height="44" rx="12" fill="#fde68a" stroke="#92400e"/>
+                                    <rect x="170" y="330" width="38" height="48" rx="5"/>
+                                    <rect x="214" y="330" width="38" height="48" rx="5"/>
+                                    <rect x="258" y="330" width="38" height="48" rx="5"/>
+                                    <!-- Merkel cell -->
+                                    <rect x="302" y="332" width="40" height="46" rx="10" fill="#bae6fd" stroke="#0369a1"/>
+                                    <rect x="348" y="330" width="38" height="48" rx="5"/>
+                                    <rect x="392" y="330" width="38" height="48" rx="5"/>
+                                </g>
+                                <!-- Basal nuclei & mitotic figures -->
+                                <g fill="#1e1b4b">
+                                    <ellipse cx="54" cy="356" rx="8" ry="11"/>
+                                    <ellipse cx="97" cy="356" rx="8" ry="11"/>
+                                    <circle cx="143" cy="358" r="8" fill="#78350f"/> <!-- Melanocyte nucleus -->
+                                    <ellipse cx="189" cy="356" rx="8" ry="11"/>
+                                    <ellipse cx="233" cy="356" rx="8" ry="11"/>
+                                    <ellipse cx="277" cy="356" rx="8" ry="11"/>
+                                    <circle cx="322" cy="356" r="8" fill="#075985"/> <!-- Merkel nucleus -->
+                                    <ellipse cx="367" cy="356" rx="8" ry="11"/>
+                                    <ellipse cx="411" cy="356" rx="8" ry="11"/>
+                                </g>
+                                <!-- Melanocyte dendritic projections transferring melanosomes -->
+                                <path d="M 135 335 Q 110 300 95 290 M 150 335 Q 180 300 190 290" fill="none" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/>
+
+                                <rect x="435" y="330" width="135" height="24" rx="4" fill="#1e1b4b"/>
+                                <text x="442" y="346" font-size="11" font-weight="700" fill="#ffffff">1. Estrato Basal</text>
+                            </g>
+
+                            <!-- MEMBRANA BASAL & DERMIS SUBYACENTE -->
+                            <line x1="20" y1="393" x2="580" y2="393" stroke="#e11d48" stroke-width="4"/>
+                            <rect x="20" y="396" width="560" height="26" rx="4" fill="#ffe4e6"/>
+                            <text x="35" y="413" font-size="11" font-weight="700" fill="#9f1239">↑ Membrana Basal (Hemidesmosomas) · Difusión nutricia desde Dermis Papilar avascular → vascular</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right: Stratum Detailed Histological Card -->
+                <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-5">
+                    <div id="stratum-detail-box" class="space-y-4">
+                        <!-- Populated dynamically by selectStratum() -->
+                    </div>
+
+                    <!-- Kinetics Summary Box -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                            <span>Tiempo de Renovación Epidérmica (Citomorfosis)</span>
+                            <span class="font-mono text-derma-700">$\approx 28\text{--}40\text{ días}$</span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div id="stratum-progress-bar" class="bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-600 h-full transition-all duration-500" style="width: 20%;"></div>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            Desde la mitosis en el estrato basal hasta la descamación como corneocito anucleado en el estrato córneo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Part of Module 2: Cellular Populations of the Epidermis -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-700">Citología Especializada</span>
+                        <h3 class="text-xl font-display font-bold text-slate-900">Poblaciones Celulares de la Epidermis</h3>
+                    </div>
+                    <div class="text-xs font-mono bg-purple-50 text-purple-900 px-3 py-1.5 rounded-lg border border-purple-200">
+                        Distribución: Queratinocitos ($90\%$) + Melanocitos ($\approx 8\%$) + Langerhans y Merkel ($\approx 2\%$)
+                    </div>
+                </div>
+
+                <!-- 4 Cell Population Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- Queratinocitos -->
+                    <div class="rounded-xl border border-slate-200 p-4 hover:border-pink-400 hover:shadow-md transition bg-gradient-to-b from-pink-50/40 to-white flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-pink-100 text-pink-800">$90\%$ celularidad</span>
+                                <i class="fa-solid fa-cubes-stacked text-pink-600 text-lg"></i>
+                            </div>
+                            <h4 class="font-display font-bold text-slate-900 text-base">Queratinocitos</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Linaje epitelial predominante (origen <strong>ectodérmico</strong>). Dispuestos en todas las capas, unidos por abundantes <strong>desmosomas</strong>.
+                            </p>
+                            <ul class="text-xs text-slate-700 space-y-1.5 pt-1">
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-pink-600 mt-0.5"></i><span><strong>Síntesis de Queratina:</strong> Filamentos intermedios (tonofilamentos) que confieren resistencia mecánica a la tracción.</span></li>
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-pink-600 mt-0.5"></i><span><strong>Cuerpos Laminares:</strong> Exocitan un sellador lipídico (acilceramidas) que impermeabiliza el espacio intercelular córneo.</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2.5 border-t border-slate-100 text-[11px] font-mono text-slate-500">
+                            Marcador: Citoqueratinas ($\text{CK5/CK14} \rightarrow \text{CK1/CK10}$)
+                        </div>
+                    </div>
+
+                    <!-- Melanocitos -->
+                    <div class="rounded-xl border border-slate-200 p-4 hover:border-amber-400 hover:shadow-md transition bg-gradient-to-b from-amber-50/40 to-white flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-100 text-amber-900">$\approx 8\%$ celularidad</span>
+                                <i class="fa-solid fa-sun-plant-wilt text-amber-600 text-lg"></i>
+                            </div>
+                            <h4 class="font-display font-bold text-slate-900 text-base">Melanocitos</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Células dendríticas derivadas de la <strong>cresta neural</strong> asentadas en el <strong>estrato basal</strong> (no forman desmosomas con queratinocitos).
+                            </p>
+                            <ul class="text-xs text-slate-700 space-y-1.5 pt-1">
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-amber-600 mt-0.5"></i><span><strong>Melanogénesis:</strong> La enzima <em>tirosinasa</em> oxida tirosina en melanina dentro de los <strong>melanosomas</strong>.</span></li>
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-amber-600 mt-0.5"></i><span><strong>Secreción Citocrina:</strong> Emiten prolongaciones dendríticas para transferir melanina, formando un capuchón supranuclear que protege al $\text{ADN}$ contra mutaciones por rayos $\text{UV-A}$ y $\text{UV-B}$.</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2.5 border-t border-slate-100 text-[11px] font-mono text-slate-500">
+                            Unidad melanoepidérmica: $1 \text{ melanocito} : 36 \text{ queratinocitos}$
+                        </div>
+                    </div>
+
+                    <!-- Células de Langerhans -->
+                    <div class="rounded-xl border border-slate-200 p-4 hover:border-teal-400 hover:shadow-md transition bg-gradient-to-b from-teal-50/40 to-white flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-teal-100 text-teal-900">Inmunovigilancia</span>
+                                <i class="fa-solid fa-virus-slash text-teal-600 text-lg"></i>
+                            </div>
+                            <h4 class="font-display font-bold text-slate-900 text-base">Células de Langerhans</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Macrófagos dendríticos derivados de precursores de la <strong>médula ósea (origen mesodérmico)</strong>, localizados principalmente en el <strong>estrato espinoso</strong>.
+                            </p>
+                            <ul class="text-xs text-slate-700 space-y-1.5 pt-1">
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-teal-600 mt-0.5"></i><span><strong>Presentadoras de Antígeno ($\text{CPA}$):</strong> Capturan antígenos epidérmicos, los procesan y migran a los ganglios linfáticos para activación de linfocitos $\text{T}$.</span></li>
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-teal-600 mt-0.5"></i><span><strong>Gránulos de Birbeck:</strong> Inclusiones citoplasmáticas características con forma de raqueta de tenis al $\text{MET}$.</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2.5 border-t border-slate-100 text-[11px] font-mono text-slate-500">
+                            Marcador inmunohistoquímico: $\text{CD1a}^+ / \text{MHC-II}^+$
+                        </div>
+                    </div>
+
+                    <!-- Células de Merkel -->
+                    <div class="rounded-xl border border-slate-200 p-4 hover:border-sky-400 hover:shadow-md transition bg-gradient-to-b from-sky-50/40 to-white flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-sky-100 text-sky-900">Mecanorrecepción</span>
+                                <i class="fa-solid fa-hand-dots text-sky-600 text-lg"></i>
+                            </div>
+                            <h4 class="font-display font-bold text-slate-900 text-base">Células de Merkel</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Células neuroendocrinas modificadas localizadas en el <strong>estrato basal</strong>, unidas a queratinocitos vecinos mediante desmosomas.
+                            </p>
+                            <ul class="text-xs text-slate-700 space-y-1.5 pt-1">
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-sky-600 mt-0.5"></i><span><strong>Disco de Merkel:</strong> Su base hace sinapsis química con una terminación nerviosa sensitiva aferente amielínica en forma de disco.</span></li>
+                                <li class="flex items-start gap-1.5"><i class="fa-solid fa-check text-sky-600 mt-0.5"></i><span><strong>Función Sensorial:</strong> Detectan presión continua, tacto fino discriminativo estático, forma y bordes (abundantes en pulpejos de los dedos).</span></li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2.5 border-t border-slate-100 text-[11px] font-mono text-slate-500">
+                            Adaptación: Lenta (Tipo $\text{SAI}$) · Gránulos neuroendocrinos
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MÓDULO 3: DERMIS, UNIÓN DERMOEPIDÉRMICA E HIPODERMIS                      -->
+        <!-- ========================================================================= -->
+        <section id="mod3" class="module-section hidden space-y-8">
+            
+            <!-- Module 3 Header -->
+            <div class="bg-gradient-to-r from-vascular-700 via-rose-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+                <div class="max-w-3xl space-y-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-rose-200 text-xs font-semibold">
+                        <i class="fa-solid fa-fingerprint"></i> Módulo 3 · Estroma Conectivo y Dermatoglifos
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold">
+                        Dermis, Unión Dermoepidérmica (UDE) e Hipodermis
+                    </h2>
+                    <p class="text-rose-100/90 text-sm sm:text-base leading-relaxed">
+                        De origen <strong>mesodérmico</strong>, la dermis constituye el soporte mecánico, vascular y nervioso del tegumento. Su matriz extracelular es sintetizada por fibroblastos y combina resistencia a la tracción (fibras de colágeno tipo $\text{I}$ y $\text{III}$) con recuperación elástica (fibras de elastina y fibrilina).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive UDE & Mechanical Stress Simulator -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left: Interactive Dermo-Epidermal Junction & Biomechanical Traction -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+                        <div>
+                            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg">
+                                Simulador Biomecánico de la Unión Dermoepidérmica
+                            </h3>
+                            <p class="text-xs text-slate-500">Aplica tensión lateral de cizallamiento para observar cómo las interdigitaciones previenen el desprendimiento epitelial.</p>
+                        </div>
+                        <span id="ude-shear-label" class="px-2.5 py-1 rounded-md font-mono text-xs font-bold bg-rose-100 text-rose-800">
+                            Cizallamiento: $0\text{ N/cm}^2$
+                        </span>
+                    </div>
+
+                    <!-- Shear Stress Slider -->
+                    <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 flex items-center gap-4">
+                        <span class="text-xs font-semibold text-slate-700 whitespace-nowrap"><i class="fa-solid fa-arrows-left-right text-vascular-600"></i> Tensión Mecánica:</span>
+                        <input type="range" id="ude-shear-slider" min="0" max="30" value="0" oninput="updateUDEShear(this.value)" class="w-full h-2 bg-rose-200 rounded-lg cursor-pointer">
+                        <button onclick="updateUDEShear(0); document.getElementById('ude-shear-slider').value=0;" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 text-xs font-semibold rounded">Reset</button>
+                    </div>
+
+                    <!-- SVG UDE Interdigitation -->
+                    <div class="rounded-xl border border-slate-200 atlas-grid-bg p-3 overflow-hidden">
+                        <svg id="svg-ude" viewBox="0 0 580 310" class="w-full h-auto">
+                            <!-- Top Dermatoglyphs (Fingerprints on surface) -->
+                            <g id="ude-top-shift" class="transition-transform duration-150">
+                                <path d="M 30 35 Q 70 20 110 35 Q 150 50 190 35 Q 230 20 270 35 Q 310 50 350 35 Q 390 20 430 35 Q 470 50 510 35 L 550 35 L 550 130
+                                         L 510 130 Q 490 175 470 130 Q 450 85 430 130 Q 410 175 390 130 Q 370 85 350 130 Q 330 175 310 130 Q 290 85 270 130 Q 250 175 230 130 Q 210 85 190 130 Q 170 175 150 130 Q 130 85 110 130 Q 90 175 70 130 L 30 130 Z"
+                                      fill="#831843" fill-opacity="0.88"/>
+                                <text x="45" y="65" font-size="11" font-weight="700" fill="#fbcfe8">Crestas Epidérmicas Superficiales → Dermatoglifos (Huellas Dactilares)</text>
+                                <text x="195" y="155" font-size="10" font-weight="700" fill="#ffffff">Clavos Interpapilares (Crestas Epidérmicas)</text>
+                            </g>
+
+                            <!-- Basement Membrane Highlight -->
+                            <path id="ude-bm-path" d="M 30 130 L 70 130 Q 90 175 110 130 Q 130 85 150 130 Q 170 175 190 130 Q 210 85 230 130 Q 250 175 270 130 Q 290 85 310 130 Q 330 175 350 130 Q 370 85 390 130 Q 410 175 430 130 Q 450 85 470 130 Q 490 175 510 130 L 550 130"
+                                  fill="none" stroke="#38bdf8" stroke-width="4"/>
+
+                            <!-- Dermal Papillae & Reticular Dermis -->
+                            <path d="M 30 130 L 70 130 Q 90 175 110 130 Q 130 85 150 130 Q 170 175 190 130 Q 210 85 230 130 Q 250 175 270 130 Q 290 85 310 130 Q 330 175 350 130 Q 370 85 390 130 Q 410 175 430 130 Q 450 85 470 130 Q 490 175 510 130 L 550 130
+                                     L 550 295 L 30 295 Z"
+                                  fill="#ffe4e6" stroke="#f43f5e" stroke-width="2"/>
+
+                            <!-- Papillary Capillary Loops & Meissner Corpuscles inside Dermal Papillae -->
+                            <path d="M 130 205 L 130 112 M 210 205 L 210 112 M 370 205 L 370 112 M 450 205 L 450 112" stroke="#e11d48" stroke-width="3" stroke-linecap="round"/>
+                            <ellipse cx="290" cy="112" rx="8" ry="13" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+                            <text x="55" y="192" font-size="11" font-weight="700" fill="#9f1239">1. Dermis Papilar: Tejido Conectivo Areolar Laxo (Colágeno III, asas capilares y corpúsculos de Meissner)</text>
+
+                            <!-- Divider -->
+                            <line x1="35" y1="205" x2="545" y2="205" stroke="#be123c" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+                            <!-- Reticular Dermis Coarse Collagen I Bundles -->
+                            <g stroke="#e11d48" stroke-width="4" opacity="0.4" stroke-linecap="round">
+                                <line x1="50" y1="225" x2="180" y2="275"/><line x1="170" y1="225" x2="60" y2="280"/>
+                                <line x1="220" y1="225" x2="360" y2="275"/><line x1="350" y1="225" x2="230" y2="280"/>
+                                <line x1="390" y1="225" x2="520" y2="275"/><line x1="510" y1="225" x2="400" y2="280"/>
+                            </g>
+                            <text x="55" y="255" font-size="11" font-weight="700" fill="#881337">2. Dermis Reticular: Tejido Conectivo Denso Irregular (Haces gruesos de Colágeno I + Líneas de Langer)</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right: Comparative Table & Structural Analysis -->
+                <div class="lg:col-span-5 space-y-5">
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+                        <h3 class="font-display font-bold text-slate-900 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-table-columns text-vascular-600"></i>
+                            Diferenciación Histológica Dérmica
+                        </h3>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                        <th class="p-2.5 font-bold">Parámetro</th>
+                                        <th class="p-2.5 font-bold text-rose-700">Capa Papilar ($\approx 20\%$)</th>
+                                        <th class="p-2.5 font-bold text-vascular-700">Capa Reticular ($\approx 80\%$)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 text-slate-700">
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Variedad Conectiva</td>
+                                        <td class="p-2.5">Tejido conectivo <strong>areolar laxo</strong></td>
+                                        <td class="p-2.5">Tejido conectivo <strong>denso irregular</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Fibras Predominantes</td>
+                                        <td class="p-2.5">Fibras delgadas de colágeno tipo $\text{III}$ (reticulares) y redes elásticas finas</td>
+                                        <td class="p-2.5">Haces gruesos entrelazados de colágeno tipo $\text{I}$ y fibras elásticas gruesas</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Estructuras Clave</td>
+                                        <td class="p-2.5">Papilas dérmicas, asas capilares nutricias, Corpúsculos de Meissner y terminaciones libres</td>
+                                        <td class="p-2.5">Vasos de mayor calibre, folículos pilosos, glándulas sebáceas/sudoríparas, Pacini y Ruffini</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2.5 font-semibold">Relevancia Clínica</td>
+                                        <td class="p-2.5">Nutrición epidérmica por difusión y generación de <strong>dermatoglifos</strong></td>
+                                        <td class="p-2.5"><strong>Líneas de tensión de Langer</strong> (orientación quirúrgica de incisiones) y estrías por sobredistensión</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Subcutis / Hypodermis Card -->
+                    <div class="bg-amber-50/80 rounded-2xl border border-amber-200 p-5 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-900">Fascia Superficial Subyacente</span>
+                            <i class="fa-solid fa-oil-well text-amber-600"></i>
+                        </div>
+                        <h4 class="font-display font-bold text-slate-900 text-base">Hipodermis (Tejido Celular Subcutáneo)</h4>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Integrada por <strong>tejido conectivo areolar laxo</strong> y lóbulos de <strong>tejido adiposo unilocular (panículo adiposo)</strong> separados por tabiques conectivos. Cumple tres roles fisiológicos esenciales: <strong>reserva energética metabólica</strong> (almacenamiento de triglicéridos), <strong>aislamiento térmico</strong> contra la pérdida de calor corporal y <strong>amortiguación mecánica</strong> de impactos profundos. Es la vía de elección para inyecciones subcutáneas (ej. insulina, heparina) debido a su rica vascularización y absorción sostenida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MÓDULO 4: NEUROFISIOLOGÍA SENSORIAL (RECEPTORES CUTÁNEOS)                 -->
+        <!-- ========================================================================= -->
+        <section id="mod4" class="module-section hidden space-y-8">
+            
+            <!-- Module 4 Header -->
+            <div class="bg-gradient-to-r from-slate-900 via-derma-900 to-sky-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+                <div class="max-w-3xl space-y-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sky-200 text-xs font-semibold">
+                        <i class="fa-solid fa-wave-square"></i> Módulo 4 · Transducción Mecanoeléctrica y Nocicepción
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold">
+                        Neurofisiología Sensorial: Receptores Cutáneos
+                    </h2>
+                    <p class="text-sky-100/90 text-sm sm:text-base leading-relaxed">
+                        La piel posee una extensa red de receptores somatosensoriales que convierten estímulos mecánicos, térmicos y químicos nocivos en <strong>potenciales de acción bioeléctricos</strong> mediante la apertura de canales catiónicos mecanosensibles ($\text{Na}^+ / \text{Ca}^{2+}$) hacia el sistema nervioso central.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Neurophysiology Panel -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left: Interactive Cutaneous Map of 6 Receptors -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="p-4 sm:p-5 border-b border-slate-100 bg-slate-50/70">
+                        <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg">
+                            Mapa Topográfico de Receptores Cutáneos
+                        </h3>
+                        <p class="text-xs text-slate-500">Haz clic sobre cualquier receptor en el corte histológico o en la botonera inferior para estimularlo y registrar su descarga bioeléctrica.</p>
+                    </div>
+
+                    <!-- Receptor Selection Buttons -->
+                    <div class="px-4 pt-3 pb-1 flex flex-wrap gap-1.5 bg-white border-b border-slate-100">
+                        <button onclick="selectReceptor('meissner')" id="rec-btn-meissner" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-derma-700 text-white transition">1. Meissner</button>
+                        <button onclick="selectReceptor('pacini')" id="rec-btn-pacini" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">2. Pacini</button>
+                        <button onclick="selectReceptor('merkel')" id="rec-btn-merkel" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">3. Discos de Merkel</button>
+                        <button onclick="selectReceptor('ruffini')" id="rec-btn-ruffini" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">4. Ruffini</button>
+                        <button onclick="selectReceptor('libres')" id="rec-btn-libres" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">5. Term. Libres</button>
+                        <button onclick="selectReceptor('piloso')" id="rec-btn-piloso" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">6. Plexo Piloso</button>
+                    </div>
+
+                    <!-- SVG Topographic Map -->
+                    <div class="p-4 atlas-grid-bg">
+                        <svg viewBox="0 0 600 360" class="w-full h-auto select-none">
+                            <!-- Epidermis Background -->
+                            <path d="M 20 50 L 580 50 L 580 115 
+                                     L 520 115 Q 490 155 460 115 Q 430 75 400 115 Q 370 155 340 115 Q 310 75 280 115 Q 250 155 220 115 Q 190 75 160 115 Q 130 155 100 115 Q 70 75 40 115 L 20 115 Z"
+                                  fill="#fbcfe8" stroke="#be185d" stroke-width="2"/>
+                            <!-- Dermis Background -->
+                            <path d="M 20 115 L 40 115 Q 70 75 100 115 Q 130 155 160 115 Q 190 75 220 115 Q 250 155 280 115 Q 310 75 340 115 Q 370 155 400 115 Q 430 75 460 115 Q 490 155 520 115 L 580 115
+                                     L 580 285 L 20 285 Z"
+                                  fill="#fff1f2" stroke="#f43f5e" stroke-width="2"/>
+                            <!-- Hypodermis Background -->
+                            <rect x="20" y="285" width="560" height="60" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+
+                            <!-- Common Sensory Nerve Trunk at Bottom -->
+                            <path d="M 40 330 L 560 330" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+                            <text x="45" y="344" font-size="10" font-weight="700" fill="#713f12">Tronco Nervioso Aferente Sensitivo (Fibras mielínicas $A\beta, A\delta$ y amielínicas $C$)</text>
+
+                            <!-- 1. MEISSNER (Dermal Papilla) -->
+                            <g onclick="selectReceptor('meissner')" class="svg-interactive-layer">
+                                <path d="M 70 112 L 70 330" stroke="#f59e0b" stroke-width="2.5"/>
+                                <ellipse cx="70" cy="105" rx="13" ry="20" fill="#fde047" stroke="#b45309" stroke-width="2"/>
+                                <path d="M 62 95 L 78 99 L 62 105 L 78 110 L 62 115" fill="none" stroke="#78350f" stroke-width="1.5"/>
+                                <circle id="ripple-meissner" cx="70" cy="105" r="8" fill="#0284c7" class="receptor-ripple"/>
+                                <text x="35" y="42" font-size="11" font-weight="700" fill="#0369a1">1. Meissner</text>
+                            </g>
+
+                            <!-- 3. MERKEL (Basal Layer of Epidermis) -->
+                            <g onclick="selectReceptor('merkel')" class="svg-interactive-layer">
+                                <path d="M 130 138 L 130 330" stroke="#f59e0b" stroke-width="2.5"/>
+                                <circle cx="130" cy="132" r="10" fill="#38bdf8" stroke="#0369a1" stroke-width="2"/>
+                                <path d="M 118 140 Q 130 146 142 140" fill="none" stroke="#0369a1" stroke-width="3"/>
+                                <circle id="ripple-merkel" cx="130" cy="132" r="8" fill="#0284c7" class="receptor-ripple hidden"/>
+                                <text x="105" y="42" font-size="11" font-weight="700" fill="#0369a1">3. Merkel</text>
+                            </g>
+
+                            <!-- 5. TERMINACIONES NERVIOSAS LIBRES (Intraepidermal) -->
+                            <g onclick="selectReceptor('libres')" class="svg-interactive-layer">
+                                <path d="M 220 330 L 220 120 M 220 120 L 202 75 M 220 120 L 220 68 M 220 120 L 238 78" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle id="ripple-libres" cx="220" cy="80" r="8" fill="#e11d48" class="receptor-ripple hidden"/>
+                                <text x="185" y="42" font-size="11" font-weight="700" fill="#be123c">5. Term. Libres</text>
+                            </g>
+
+                            <!-- 2. PACINI (Deep Reticular Dermis / Hypodermis) -->
+                            <g onclick="selectReceptor('pacini')" class="svg-interactive-layer">
+                                <path d="M 325 275 L 325 330" stroke="#f59e0b" stroke-width="3"/>
+                                <ellipse cx="325" cy="255" rx="28" ry="20" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+                                <ellipse cx="325" cy="255" rx="21" ry="14" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+                                <ellipse cx="325" cy="255" rx="14" ry="9" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+                                <ellipse cx="325" cy="255" rx="7" ry="4" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+                                <line x1="325" y1="245" x2="325" y2="265" stroke="#0369a1" stroke-width="2.5"/>
+                                <circle id="ripple-pacini" cx="325" cy="255" r="8" fill="#0284c7" class="receptor-ripple hidden"/>
+                                <text x="295" y="228" font-size="11" font-weight="700" fill="#0369a1">2. Corpúsculo de Pacini</text>
+                            </g>
+
+                            <!-- 4. RUFFINI (Reticular Dermis Stretch) -->
+                            <g onclick="selectReceptor('ruffini')" class="svg-interactive-layer">
+                                <path d="M 435 205 L 435 330" stroke="#f59e0b" stroke-width="2.5"/>
+                                <ellipse cx="435" cy="195" rx="30" ry="12" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+                                <path d="M 415 195 Q 435 188 455 195 M 418 199 Q 435 204 452 199" fill="none" stroke="#166534" stroke-width="1.5"/>
+                                <circle id="ripple-ruffini" cx="435" cy="195" r="8" fill="#16a34a" class="receptor-ripple hidden"/>
+                                <text x="405" y="175" font-size="11" font-weight="700" fill="#15803d">4. Ruffini</text>
+                            </g>
+
+                            <!-- 6. PLEXO DE LA RAÍZ PILOSA -->
+                            <g onclick="selectReceptor('piloso')" class="svg-interactive-layer">
+                                <!-- Hair follicle -->
+                                <path d="M 525 15 L 515 245" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+                                <!-- Nerve plexus wrapping hair bulb -->
+                                <path d="M 515 330 L 515 245 M 505 215 L 525 222 L 505 230 L 525 238 L 505 245" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+                                <circle id="ripple-piloso" cx="515" cy="230" r="8" fill="#d97706" class="receptor-ripple hidden"/>
+                                <text x="480" y="42" font-size="11" font-weight="700" fill="#b45309">6. Plexo Piloso</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right: Bioelectric Oscilloscope & Receptor Datasheet -->
+                <div class="lg:col-span-5 space-y-5">
+                    
+                    <!-- Simulated Bioelectric Oscilloscope -->
+                    <div class="bg-slate-900 rounded-2xl p-5 text-white border border-slate-800 shadow-md space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">Registro Electrofisiológico ($\text{mV/ms}$)</span>
+                            </div>
+                            <span id="osc-adaptation-badge" class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 font-mono text-xs">
+                                Adaptación Rápida (Fásico)
+                            </span>
+                        </div>
+
+                        <!-- SVG Action Potential Spikes -->
+                        <div class="bg-slate-950 rounded-xl p-3 border border-slate-800">
+                            <svg id="svg-oscilloscope" viewBox="0 0 400 125" class="w-full h-auto">
+                                <!-- Grid lines -->
+                                <g stroke="#1e293b" stroke-width="1">
+                                    <line x1="0" y1="25" x2="400" y2="25"/><line x1="0" y1="55" x2="400" y2="55"/><line x1="0" y1="85" x2="400" y2="85"/>
+                                    <line x1="80" y1="0" x2="80" y2="125"/><line x1="160" y1="0" x2="160" y2="125"/><line x1="240" y1="0" x2="240" y2="125"/><line x1="320" y1="0" x2="320" y2="125"/>
+                                </g>
+                                <!-- Action Potential Trace (Updated dynamically) -->
+                                <path id="osc-spike-path" d="M 10 75 L 55 75 L 60 15 L 65 85 L 70 75 L 78 15 L 83 85 L 88 75 L 96 15 L 101 85 L 106 75 L 310 75 L 315 20 L 320 85 L 325 75 L 390 75" 
+                                      fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round"/>
+                                <!-- Mechanical Stimulus Bar at bottom -->
+                                <path d="M 10 115 L 55 115 L 55 102 L 315 102 L 315 115 L 390 115" fill="none" stroke="#38bdf8" stroke-width="2"/>
+                                <text x="145" y="114" font-size="9" font-family="monospace" fill="#38bdf8">ESTÍMULO APLICADO (ON → OFF)</text>
+                                <text x="8" y="18" font-size="9" font-family="monospace" fill="#94a3b8">$+30\text{ mV}$</text>
+                                <text x="8" y="72" font-size="9" font-family="monospace" fill="#94a3b8">$-70\text{ mV}$</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Receptor Card -->
+                    <div id="receptor-detail-card" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+                        <!-- Dynamically populated by selectReceptor() -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MÓDULO 5: ANEXOS CUTÁNEOS (ESTRUCTURA Y FISIOLOGÍA)                       -->
+        <!-- ========================================================================= -->
+        <section id="mod5" class="module-section hidden space-y-8">
+            
+            <!-- Module 5 Header -->
+            <div class="bg-gradient-to-r from-amber-900 via-slate-900 to-derma-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+                <div class="max-w-3xl space-y-2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-200 text-xs font-semibold">
+                        <i class="fa-solid fa-vial-circle-check"></i> Módulo 5 · Faneras y Glándulas Exocrinas
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-display font-extrabold">
+                        Anexos Tegumentarios: Unidad Pilosebácea, Glándulas Sudoríparas y Uñas
+                    </h2>
+                    <p class="text-amber-100/90 text-sm sm:text-base leading-relaxed">
+                        Todos los anexos cutáneos comparten un <strong>origen embriológico ectodérmico</strong>: se desarrollan como invaginaciones descendentes del epitelio epidérmico hacia la dermis subyacente durante la embriogénesis, conservando continuidad con la superficie.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Pilosebaceous Unit & Pilomotor Reflex Simulator -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                
+                <!-- Left: Interactive SVG Follicle + Arrector Pili Muscle -->
+                <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Simulador Fisiológico</span>
+                            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg">
+                                Unidad Pilosebácea y Reflejo Pilomotor
+                            </h3>
+                        </div>
+                        <button onclick="togglePiloerection()" id="btn-piloerection" class="px-3.5 py-2 rounded-xl bg-derma-700 hover:bg-derma-800 text-white text-xs font-bold flex items-center gap-2 shadow-sm transition">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Activar Estímulo Adrenérgico / Frío</span>
+                        </button>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 atlas-grid-bg p-4 relative">
+                        <svg id="svg-piloerection" viewBox="0 0 500 320" class="w-full h-auto">
+                            <!-- Skin Surface (Goosebump / Cutis Anserina bump appears on contraction) -->
+                            <path id="pilo-skin-surface" d="M 20 85 L 210 85 Q 245 85 280 85 L 480 85 L 480 120 L 20 120 Z" fill="#db2777" class="transition-all duration-500"/>
+                            <rect x="20" y="120" width="460" height="190" fill="#fff1f2"/>
+
+                            <!-- Rotating Hair Follicle Group -->
+                            <g id="pilo-follicle-group" style="transform-origin: 245px 255px; transform: rotate(-24deg); transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                                <!-- Follicle Outer Root Sheath -->
+                                <path d="M 232 80 L 230 250 C 228 282 262 282 260 250 L 258 80 Z" fill="#818cf8" stroke="#312e81" stroke-width="2"/>
+                                <!-- Dermal Papilla at base of Bulb -->
+                                <path d="M 240 272 C 240 255 250 255 250 272 Z" fill="#e11d48"/>
+                                <!-- Hair Shaft (Medulla, Cortex, Cuticle) -->
+                                <line x1="245" y1="260" x2="245" y2="10" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+                                <!-- Sebaceous Gland (Attached at angle) -->
+                                <path id="pilo-sebaceous" d="M 258 145 C 308 130 315 185 258 175 Z" fill="#fde047" stroke="#ca8a04" stroke-width="2" class="transition-all duration-500"/>
+                                <!-- Sebum droplet secreted into infundibulum -->
+                                <circle id="pilo-sebum-drop" cx="255" cy="115" r="5" fill="#eab308" opacity="0.4" class="transition-all duration-500"/>
+                            </g>
+
+                            <!-- Arrector Pili Smooth Muscle -->
+                            <path id="pilo-muscle" d="M 220 220 L 365 120 L 378 128 L 228 235 Z" fill="#e11d48" stroke="#9f1239" stroke-width="1.5" class="transition-all duration-500"/>
+                            <text x="315" y="195" font-size="11" font-weight="700" fill="#9f1239">Músculo Erector del Pelo</text>
+                            <text x="315" y="209" font-size="10" fill="#881337">(Músculo liso · Inervación Simpática $\alpha_1$)</text>
+
+                            <!-- Insulating Air Layer Indicator -->
+                            <g id="pilo-air-layer" opacity="0" class="transition-opacity duration-500">
+                                <rect x="35" y="25" width="175" height="45" rx="6" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-dasharray="4,2"/>
+                                <text x="45" y="45" font-size="10" font-weight="700" fill="#0369a1">Capa de aire aislante atrapada</text>
+                                <text x="45" y="59" font-size="9" fill="#075985">+ Compresión de glándula sebácea</text>
+                            </g>
+
+                            <text x="35" y="150" font-size="11" font-weight="700" fill="#312e81">Folículo Piloso (Vaina radicular)</text>
+                            <text x="35" y="265" font-size="11" font-weight="700" fill="#be123c">Bulbo Piloso + Matriz Germinativa</text>
+                        </svg>
+                    </div>
+
+                    <div id="pilo-status-text" class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed">
+                        <strong>Estado Basal (Relajado):</strong> El tallo piloso emerge con una inclinación oblicua fisiológica. El músculo liso erector del pelo se inserta desde la dermis papilar hasta la vaina conectiva del folículo por debajo de la glándula sebácea.
+                    </div>
+                </div>
+
+                <!-- Right: Exocrine Glands & Nails Explorer -->
+                <div class="lg:col-span-6 space-y-5">
+                    
+                    <!-- Exocrine Glands Comparative Interactive Tabs -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-display font-bold text-slate-900 text-base sm:text-lg">
+                                Glándulas Cutáneas y Aparato Ungueal
+                            </h3>
+                            <span class="text-xs font-mono text-slate-500">Secreción Exocrina</span>
+                        </div>
+
+                        <!-- Sub-tabs -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <button onclick="selectAppendageTab('sebacea')" id="app-tab-sebacea" class="p-2.5 rounded-xl text-xs font-bold bg-amber-600 text-white shadow-sm transition">
+                                Glánd. Sebáceas
+                            </button>
+                            <button onclick="selectAppendageTab('ecrina')" id="app-tab-ecrina" class="p-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                                Sudor. Ecrinas
+                            </button>
+                            <button onclick="selectAppendageTab('apocrina')" id="app-tab-apocrina" class="p-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                                Sudor. Apocrinas
+                            </button>
+                            <button onclick="selectAppendageTab('unas')" id="app-tab-unas" class="p-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                                Uñas (Faneras)
+                            </button>
+                        </div>
+
+                        <!-- Dynamic Content Box -->
+                        <div id="appendage-detail-content" class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
+                            <!-- Populated by selectAppendageTab() -->
+                        </div>
+                    </div>
+
+                    <!-- Summary Table of Sweat Glands -->
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-3">
+                        <h4 class="font-display font-bold text-slate-900 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced text-derma-600"></i>
+                            Cuadro Diferencial: Glándulas Sudoríparas Ecrinas vs. Apocrinas
+                        </h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                    <tr class="bg-slate-100 text-slate-800 border-b border-slate-200">
+                                        <th class="p-2 font-bold">Criterio</th>
+                                        <th class="p-2 font-bold text-sky-700">Sudoríparas Ecrinas (Merocrinas)</th>
+                                        <th class="p-2 font-bold text-purple-700">Sudoríparas Apocrinas</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 text-slate-700">
+                                    <tr>
+                                        <td class="p-2 font-semibold">Desembocadura</td>
+                                        <td class="p-2">Directamente en la superficie epidérmica (poro sudoríparo)</td>
+                                        <td class="p-2">En el infundíbulo del <strong>folículo piloso</strong> (sobre la glánd. sebácea)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-semibold">Distribución</td>
+                                        <td class="p-2">Casi toda la piel (máxima densidad en palmas y plantas)</td>
+                                        <td class="p-2">Región axilar, inguinal, areola mamaria y perianal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-semibold">Producto e Inicio</td>
+                                        <td class="p-2">Acuoso hipotónico ($99\% \text{ H}_2\text{O}, \text{NaCl}$, urea). Activas desde el nacimiento</td>
+                                        <td class="p-2">Viscoso rico en lípidos, proteínas, amoníaco y <strong>feromonas</strong>. Activas en la pubertad</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-semibold">Función Principal</td>
+                                        <td class="p-2"><strong>Termorregulación</strong> por evaporación y excreción</td>
+                                        <td class="p-2">Sudoración emocional/adrenérgica y señalización olfativa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        
+
+    
+        </div>
+    </main>
+
+    <!-- Modal Tutorial / Guía de Uso -->
+    <div id="tutorial-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-3xl w-full p-6 sm:p-7 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto custom-scroll">
+            <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                <div class="flex items-center gap-2.5 text-accent">
+                    <i class="fa-solid fa-book-open-reader text-xl"></i>
+                    <h3 class="text-base sm:text-lg font-bold text-gray-900 uppercase tracking-wide">Guía de Uso del Simulador Interactivo</h3>
+                </div>
+                <button onclick="closeTutorial()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                <p>
+                    Bienvenido al <strong>Atlas Interactivo del Sistema Tegumentario</strong> diseñado para los aspirantes a la carrera de Medicina (Facultad de Ciencias Médicas - Universidad Católica de Cuyo). Este entorno integra modelos vectoriales dinámicos, simuladores biofísicos y correlación clínico-histológica de la piel humana.
+                </p>
+
+                <!-- Bloque de Módulos e Interactividad -->
+                <div class="space-y-3">
+                    <h4 class="font-bold text-gray-800 text-sm flex items-center gap-2 border-b border-gray-100 pb-1.5">
+                        <i class="fa-solid fa-compass text-accent"></i>
+                        Estructura de Módulos y Herramientas Interactivas
+                    </h4>
+
+                    <!-- Módulo 1 -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-gray-200 space-y-2">
+                        <div class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-layer-group"></i> 1. Visión General & Fisiología Cutánea
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 ml-1">
+                            <li><strong>Corte 3D Interactivo:</strong> Haz clic en los botones de capas (<em>Epidermis, Dermis, Hipodermis</em>) o sobre las secciones del cubo histológico para inspeccionar el origen embriológico, grosor relativo y vascularización.</li>
+                            <li><strong>Calculadora Antropométrica:</strong> Ajusta los deslizadores de <em>Peso</em> y <em>Altura</em> para calcular la Superficie Corporal ($SC$) mediante la fórmula clínica de Mosteller: $SC = \sqrt{\frac{\text{peso [kg]} \times \text{altura [cm]}}{3600}}$.</li>
+                            <li><strong>Simulador de Termorregulación:</strong> Modifica la temperatura ambiental con el control deslizante (o presets de <em>Frío Extremo</em>, <em>Termoneutro</em> y <em>Calor Intenso</em>) para observar en tiempo real la vasodilatación/vasoconstricción capilar y la diaforesis ecrina activa.</li>
+                            <li><strong>Selector de la Triple Barrera:</strong> Explora las dimensiones protectoras de la piel: <em>Física-Mecánica</em> (queratina y corneocitos), <em>Química-Antimicrobiana</em> (manto ácido pH $4.5\text{--}5.5$) y <em>Biológica-Inmunitaria</em>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 2 -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-gray-200 space-y-2">
+                        <div class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-dna"></i> 2. Epidermis & Citología Especializada
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 ml-1">
+                            <li><strong>Conmutador Piel Fina vs. Piel Gruesa:</strong> Alterna entre ambos fenotipos anatómicos para visualizar la presencia del <em>Estrato Lúcido</em> eosinófilo en palmas y plantas frente a la piel fina corporal.</li>
+                            <li><strong>Selector de Estratos:</strong> Haz clic en cualquiera de los 5 estratos (<em>Basal, Espinoso, Granuloso, Lúcido, Córneo</em>) para analizar el ciclo mitótico, cuerpos laminares lipídicos, gránulos de queratohialina y descamación córnea continua.</li>
+                            <li><strong>Citología Epidérmica:</strong> Conoce la función de los <em>Queratinocitos</em> ($90\%$), <em>Melanocitos</em> (donación de melanina supranuclear fotoprotectora ante rayos UV), <em>Células de Langerhans</em> (presentación antigénica e inmunovigilancia) y <em>Células de Merkel</em> (mecanorrecepción basal).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 3 -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-gray-200 space-y-2">
+                        <div class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-fingerprint"></i> 3. Dermis, Unión Dermoepidérmica & Hipodermis
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 ml-1">
+                            <li><strong>Dermis Papilar vs. Reticular:</strong> Diferencia el tejido conectivo laxo de las papilas dérmicas con asas nutricias del tejido conectivo denso irregular rico en colágeno tipo I y fibras elásticas.</li>
+                            <li><strong>Líneas de Tensión de Langer:</strong> Comprende su relevancia quirúrgica para incisiones con cicatrización estética óptima.</li>
+                            <li><strong>Simulador Biomecánico de Cizalladura y Flictenas:</strong> Acciona el control de <em>Fuerza Tangencial de Cizallamiento</em> para observar el estrés mecánico sobre la lámina basal y la formación patológica de ampollas o flictenas por extravasación serosa subepidérmica.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 4 -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-gray-200 space-y-2">
+                        <div class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-wave-square"></i> 4. Neurofisiología Sensorial Cutánea
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 ml-1">
+                            <li><strong>Mapa Sensorial Interactivo:</strong> Selecciona sobre el corte dérmico los distintos mecanorreceptores y terminaciones para conocer su velocidad de adaptación y campo receptor:
+                                <ul class="list-disc list-inside ml-3 mt-1 space-y-0.5">
+                                    <li><em>Corpúsculos de Meissner:</em> Tacto ligero discriminativo y vibración de baja frecuencia.</li>
+                                    <li><em>Corpúsculos de Pacini:</em> Presión profunda y vibración rápida ($60\text{--}400\text{ Hz}$).</li>
+                                    <li><em>Discos de Merkel:</em> Texturas y tacto fino sostenido en el estrato basal.</li>
+                                    <li><em>Corpúsculos de Ruffini:</em> Estiramiento cutáneo continuo y propiocepción térmica.</li>
+                                    <li><em>Terminaciones Nerviosas Libres:</em> Nocicepción álgica y termorrecepción (frío/calor).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Osciloscopio Bioeléctrico:</strong> Observa la cadencia y descarga de potenciales de acción generados ante la estimulación mecánica sostenida vs. transitoria.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Módulo 5 -->
+                    <div class="p-3.5 bg-slate-50 rounded-xl border border-gray-200 space-y-2">
+                        <div class="font-bold text-gray-900 text-xs sm:text-sm flex items-center gap-2 text-accent">
+                            <i class="fa-solid fa-vial-circle-check"></i> 5. Anexos Tegumentarios & Unidad Pilosebácea
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-xs text-gray-700 ml-1">
+                            <li><strong>Simulador de Piloerección Simpática:</strong> Presiona el interruptor de estimulación para activar la contracción del <em>músculo erector del pelo</em> (músculo liso involuntario con inervación noradrenérgica), verticalizando el tallo piloso y formando el "cutis anserina" (piel de gallina).</li>
+                            <li><strong>Glándulas Cutáneas Comparadas:</strong> Contrasta la secreción <em>holocrina</em> sebácea (lípidos lubricantes), la secreción <em>merocrina</em> de las glándulas sudoríparas ecrinas (termorregulación acuosa) y la secreción <em>apocrina</em> folicular odorífera de axilas y periné.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Consejos de Estudio -->
+                <div class="p-3.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 space-y-1.5">
+                    <h4 class="font-bold flex items-center gap-1.5 text-xs sm:text-sm">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        Recomendaciones Didácticas para el Examen de Ingreso
+                    </h4>
+                    <p class="text-xs leading-relaxed">
+                        Presta especial atención al doble origen embriológico (ectodermo vs. mesodermo), a los mecanismos fisiológicos de respuesta vascular ante variaciones de temperatura ambiental, a la función fotoprotectora de los melanosomas sobre el ADN nuclear y a la clasificación neurofisiológica de los receptores sensitivos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-3 border-t border-gray-100 flex justify-end">
+                <button onclick="closeTutorial()" class="px-5 py-2.5 bg-accent text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-accent-hover transition shadow-sm">
+                    Entendido, comenzar exploración
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de Página Institucional Obligatorio -->
+    <footer class="bg-white border-t border-gray-200 py-4 mt-8 text-center text-xs text-gray-500">
+        Desarrollado por vesalio - Todos los derechos reservados
+    </footer>
+
+    <!-- Script Principal -->
+    <script>
+
+        function openTutorial() {
+            const m = document.getElementById('tutorial-modal');
+            if (m) m.classList.remove('hidden');
+            renderKaTeXMath();
+        }
+        function closeTutorial() {
+            const m = document.getElementById('tutorial-modal');
+            if (m) m.classList.add('hidden');
+        }
+        function renderKaTeXMath() {
+            if (window.renderMathInElement) {
+                window.renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+
+
+        // Helper to re-render LaTeX formulas inside dynamically updated DOM nodes
+        function renderLatexInElement(el) {
+            if (window.renderMathInElement && el) {
+                renderMathInElement(el, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+
+        // -------------------------------------------------------------------------
+        // NAVIGATION CONTROLLER
+        // -------------------------------------------------------------------------
+        function switchModule(modId) {
+            document.querySelectorAll('.module-section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+            const targetSec = document.getElementById(modId);
+            if (targetSec) {
+                targetSec.classList.remove('hidden');
+            }
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-accent', 'text-white', 'shadow-sm');
+                btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+            });
+
+            const activeBtn = document.getElementById('tab-' + modId);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                activeBtn.classList.add('bg-accent', 'text-white', 'shadow-sm');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderKaTeXMath();
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 1A: 3D SKIN LAYER EXPLORER DATA & LOGIC
+        // -------------------------------------------------------------------------
+        const skinLayersData = {
+            all: {
+                badge: 'Visión Global del Órgano Cutáneo',
+                title: 'Arquitectura general: Epidermis, Dermis e Hipodermis',
+                origin: 'Doble origen embriológico: Ectodermo superficial (epidermis y anexos) + Mesodermo (dermis)',
+                description: 'La piel representa entre el $7\\text{--}8\\%$ del peso corporal total y se compone de dos capas constitutivas verdaderas: la <strong>epidermis</strong> (epitelial, superficial y avascular) y la <strong>dermis</strong> (conectiva, profunda y ricamente vascularizada). Bajo la dermis se sitúa la <strong>hipodermis</strong> (tejido celular subcutáneo), que vincula el tegumento con las fascias musculares o el periostio.',
+                bullets: [
+                    '<strong>Epidermis:</strong> Epitelio plano estratificado queratinizado renovado continuamente por mitosis basal.',
+                    '<strong>Dermis:</strong> Estroma conectivo dividido en capa papilar (laxa) y capa reticular (densa irregular).',
+                    '<strong>Hipodermis (Subcutis):</strong> Tejido adiposo y conectivo areolar para reserva energética, amortiguación mecánica y aislamiento térmico.'
+                ],
+                tip: 'Recuerda para el examen: La piel propiamente dicha consta SOLO de epidermis y dermis. La hipodermis es el tejido celular subcutáneo subyacente.'
+            },
+            epidermis: {
+                badge: 'Capa Superficial Constitutiva (1)',
+                title: 'Epidermis (Epitelio Cutáneo)',
+                origin: 'Origen Embriológico: Ectodermo Superficial',
+                description: 'Constituida por un <strong>epitelio plano estratificado queratinizado</strong> completamente <strong>avascular</strong>. Carece de vasos sanguíneos y linfáticos propios, nutriéndose por difusión simple desde las asas capilares de la capa papilar dérmica a través de la membrana basal.',
+                bullets: [
+                    '<strong>Población principal ($90\\%$):</strong> Queratinocitos productores de queratina y lípidos laminares impermeabilizantes.',
+                    '<strong>Células no queratinocíticas ($\\approx 10\\%$):</strong> Melanocitos ($\\approx 8\\%$, fotoprotección), Células de Langerhans (inmunidad) y Células de Merkel (tacto fino).',
+                    '<strong>Estratificación:</strong> $4$ estratos en piel fina y $5$ estratos en piel gruesa (suma el estrato lúcido en palmas y plantas).'
+                ],
+                tip: 'Al ser avascular, una lesión o abrasión que afecte únicamente a la epidermis no produce sangrado.'
+            },
+            dermis: {
+                badge: 'Capa Profunda Constitutiva (2)',
+                title: 'Dermis (Corion o Estroma Conectivo)',
+                origin: 'Origen Embriológico: Mesodermo (Dermatoma)',
+                description: 'Matriz de tejido conectivo que otorga resistencia mecánica a la tracción y elasticidad gracias a su red de <strong>colágeno tipo $\\text{I}$ y $\\text{III}$</strong> y <strong>fibras elásticas</strong>. Alberga los plexos vasculares termorreguladores, vasos linfáticos, receptores sensoriales encapsulados y anexos epidérmicos.',
+                bullets: [
+                    '<strong>Estrato Papilar (Superficial):</strong> Tejido conectivo areolar laxo con papilas dérmicas, asas capilares nutricias y corpúsculos de Meissner.',
+                    '<strong>Estrato Reticular (Profundo):</strong> Tejido conectivo denso irregular con gruesos haces de colágeno que determinan las líneas de tensión de Langer.',
+                    '<strong>Unión Dermoepidérmica:</strong> Interdigitación entre crestas epidérmicas y papilas dérmicas que origina las huellas dactilares (dermatoglifos).'
+                ],
+                tip: 'El cuero comercial se obtiene del procesamiento industrial de la dermis reticular animal debido a su altísima densidad de fibras colágenas entrelazadas.'
+            },
+            hipodermis: {
+                badge: 'Tejido Subyacente (3)',
+                title: 'Hipodermis (Tejido Celular Subcutáneo o Fascia Superficial)',
+                origin: 'Origen Embriológico: Mesodermo',
+                description: 'Ubicada en profundidad respecto a la dermis reticular, está conformada por <strong>tejido conectivo areolar laxo</strong> y abundante <strong>tejido adiposo blanco unilocular</strong> organizado en lobulillos (panículo adiposo).',
+                bullets: [
+                    '<strong>Reserva Energética:</strong> Almacena triacilglicéridos de alto rendimiento calórico ($9\\text{ kcal/g}$).',
+                    '<strong>Aislamiento Térmico:</strong> Reduce la transferencia conductiva de calor desde el núcleo corporal hacia el exterior.',
+                    '<strong>Amortiguación Mecánica:</strong> Absorbe fuerzas de compresión y aloja los corpúsculos de Pacini profundos.'
+                ],
+                tip: 'Permite el deslizamiento libre de la piel sobre los planos osteomusculares profundos.'
+            }
+        };
+
+        function selectSkinLayer(layerKey) {
+            const data = skinLayersData[layerKey];
+            const infoContainer = document.getElementById('skin-layer-info');
+            const tipContainer = document.getElementById('skin-layer-exam-tip');
+
+            // Update button styling
+            ['all', 'epidermis', 'dermis', 'hipodermis'].forEach(k => {
+                const btn = document.getElementById('btn-layer-' + k);
+                if (k === layerKey) {
+                    btn.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-derma-600 text-white transition shadow-sm';
+                } else {
+                    btn.className = 'px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition';
+                }
+            });
+
+            // Highlight SVG groups
+            ['epidermis', 'dermis', 'hipodermis'].forEach(k => {
+                const grp = document.getElementById('svg-grp-' + k);
+                if (layerKey === 'all' || layerKey === k) {
+                    grp.style.opacity = '1';
+                    grp.style.transform = layerKey === k ? 'translateX(6px)' : 'translateX(0)';
+                } else {
+                    grp.style.opacity = '0.32';
+                    grp.style.transform = 'translateX(0)';
+                }
+            });
+
+            infoContainer.innerHTML = `
+                <div class="inline-block px-2.5 py-1 rounded-md bg-derma-100 text-derma-800 font-bold text-xs">
+                    ${data.badge}
+                </div>
+                <h3 class="text-xl font-display font-bold text-slate-900">${data.title}</h3>
+                <div class="text-xs font-mono text-vascular-700 bg-vascular-50 px-3 py-1.5 rounded-lg border border-vascular-100">
+                    <i class="fa-solid fa-seedling mr-1"></i> ${data.origin}
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${data.description}</p>
+                <ul class="space-y-2 pt-1 text-xs sm:text-sm text-slate-700">
+                    ${data.bullets.map(b => `<li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-derma-600 mt-1 text-xs"></i><span>${b}</span></li>`).join('')}
+                </ul>
+            `;
+            tipContainer.innerHTML = data.tip;
+
+            renderLatexInElement(infoContainer);
+            renderLatexInElement(tipContainer);
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 1B: THERMOREGULATION SIMULATOR & PHYSIOLOGICAL FUNCTIONS
+        // -------------------------------------------------------------------------
+        function setThermoPreset(val) {
+            const slider = document.getElementById('thermo-slider');
+            slider.value = val;
+            updateThermoregulation(val);
+        }
+
+        function updateThermoregulation(tempVal) {
+            const temp = parseInt(tempVal, 10);
+            const badge = document.getElementById('thermo-badge');
+            const capPath = document.getElementById('thermo-capillaries');
+            const heatWaves = document.getElementById('thermo-heat-waves');
+            const sweatDrops = document.getElementById('thermo-sweat-drops');
+            const shuntPath = document.getElementById('thermo-shunt');
+            const expBox = document.getElementById('thermo-explanation');
+
+            if (temp <= 16) {
+                // Cold -> Vasoconstriction
+                badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-sky-100 text-sky-800';
+                badge.innerHTML = `Exposición al Frío ($${temp}^\\circ\\text{C}$)`;
+                capPath.setAttribute('stroke-width', '2');
+                capPath.setAttribute('stroke', '#93c5fd');
+                shuntPath.setAttribute('stroke-width', '6');
+                shuntPath.setAttribute('stroke', '#e11d48');
+                heatWaves.setAttribute('opacity', '0.05');
+                sweatDrops.setAttribute('opacity', '0');
+
+                expBox.innerHTML = `
+                    <div class="font-bold text-sky-900 flex items-center gap-1.5">
+                        <i class="fa-solid fa-temperature-arrow-down text-sky-600"></i>
+                        Respuesta Simpática Adrenérgica: Vasoconstricción Dérmica Superficial
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Ante el frío ambiental ($${temp}^\\circ\\text{C}$), el hipotálamo posterior descarga impulsos simpáticos noradrenérgicos (receptores $\\alpha_1$) que contraen las arteriolas de las asas capilares papilares. La sangre se deriva por anastomosis arteriovenosas profundas para <strong>minimizar la pérdida conductiva de calor</strong> y conservar la temperatura central ($37^\\circ\\text{C}$) en órganos vitales, acompañada de inhibición de la sudoración y reflejo pilomotor.
+                    </p>
+                `;
+            } else if (temp >= 30) {
+                // Heat -> Vasodilation + Diaforesis
+                badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-rose-100 text-rose-800';
+                badge.innerHTML = `Estrés Térmico / Calor ($${temp}^\\circ\\text{C}$)`;
+                capPath.setAttribute('stroke-width', '9.5');
+                capPath.setAttribute('stroke', '#e11d48');
+                shuntPath.setAttribute('stroke-width', '2');
+                heatWaves.setAttribute('opacity', '0.95');
+                sweatDrops.setAttribute('opacity', '1');
+
+                expBox.innerHTML = `
+                    <div class="font-bold text-rose-900 flex items-center gap-1.5">
+                        <i class="fa-solid fa-temperature-arrow-up text-rose-600"></i>
+                        Disipación Activa de Calor: Vasodilatación Superficial + Diaforesis (Sudoración)
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Ante el calor ($${temp}^\\circ\\text{C}$) o ejercicio intenso, se produce una marcada <strong>vasodilatación de los plexos papilares superficiales</strong> (eritema térmico), aumentando la transferencia de calor por radiación y convección hacia el exterior. Simultáneamente, fibras simpáticas colinérgicas activan las glándulas sudoríparas ecrinas; la evaporación del sudor consume calor latente de vaporización ($\\approx 580\\text{ kcal/L}$ de sudor evaporado).
+                    </p>
+                `;
+            } else {
+                // Neutral
+                badge.className = 'px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-100 text-emerald-800';
+                badge.innerHTML = `Termoneutralidad ($${temp}^\\circ\\text{C}$)`;
+                capPath.setAttribute('stroke-width', '5');
+                capPath.setAttribute('stroke', '#e11d48');
+                shuntPath.setAttribute('stroke-width', '3.5');
+                heatWaves.setAttribute('opacity', '0.25');
+                sweatDrops.setAttribute('opacity', '0');
+
+                expBox.innerHTML = `
+                    <div class="font-bold text-emerald-900 flex items-center gap-1.5">
+                        <i class="fa-solid fa-scale-balanced text-emerald-600"></i>
+                        Balance Termorregulador Basal
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        En condiciones de confort térmico ($${temp}^\\circ\\text{C}$), el tono vasomotor cutáneo mantiene un flujo sanguíneo nutricional y termorregulador intermedio ($\\approx 250\\text{--}500\\text{ mL/min}$), existiendo únicamente <strong>perspiración insensible</strong> basal sin diaforesis activa.
+                    </p>
+                `;
+            }
+            renderLatexInElement(badge);
+            renderLatexInElement(expBox);
+        }
+
+        // Clinical-Physiological Functions Data
+        const physioFunctionsData = {
+            barrera: {
+                title: 'Triple Barrera Protectora (Física, Química y Biológica)',
+                html: `
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <strong class="text-derma-800 block mb-0.5"><i class="fa-solid fa-brick-wall mr-1"></i> 1. Barrera Física (Mecánica e Impermeable):</strong>
+                            Construida por los corneocitos llenos de filamentos de <strong>queratina</strong> entrelazados con filagrina y rodeados por una matriz extracelular hidrofóbica de <strong>cemento lipídico</strong> (ceramidas, colesterol y ácidos grasos libres de los cuerpos laminares de Odland). Evita la deshidratación transepidérmica y el ingreso de patógenos.
+                        </div>
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <strong class="text-vascular-700 block mb-0.5"><i class="fa-solid fa-flask-vial mr-1"></i> 2. Barrera Química (Manto Ácido):</strong>
+                            Emulsión epicutánea formada por el <strong>sebo</strong> (ácidos grasos insaturados, escualeno) y el <strong>sudor ecrino</strong> (ácido láctico, aminoácidos) que mantiene un $\\text{pH}$ ácido superficial entre $4.5\\text{--}5.5$, junto con péptidos antimicrobianos (defensinas y catelicidinas) que inhiben la proliferación bacteriana patógena.
+                        </div>
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <strong class="text-teal-800 block mb-0.5"><i class="fa-solid fa-shield-virus mr-1"></i> 3. Barrera Biológica (Inmunológica):</strong>
+                            Integrada por las <strong>Células de Langerhans</strong> epidérmicas (presentadoras de antígenos $\\text{MHC-II}$), macrófagos dérmicos, mastocitos y linfocitos $\\text{T}$ residentes ($\\text{SALT}$: <em>Skin-Associated Lymphoid Tissue</em>).
+                        </div>
+                    </div>
+                `
+            },
+            vitd: {
+                title: 'Metabolismo de la Vitamina D y Homeostasis del Calcio ($\\text{Ca}^{2+}$)',
+                html: `
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <p class="leading-relaxed">
+                            Los queratinocitos de los estratos basal y espinoso contienen el precursor esteroideo <strong>7-dehidrocolesterol</strong>. Al incidir la radiación ultravioleta $\\text{UV-B}$ ($290\\text{--}315\\text{ nm}$), se rompe fotolíticamente el anillo B formando <strong>colecalciferol (Vitamina $\\text{D}_3$ inactiva)</strong>.
+                        </p>
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 font-mono text-xs text-amber-950 space-y-1.5">
+                            <div>1. <strong>Piel ($\\text{UV-B}$):</strong> $\\text{7-Dehidrocolesterol} \\xrightarrow{h\\nu} \\text{Colecalciferol (Vitamina D}_3\\text{)}$</div>
+                            <div>2. <strong>Hígado ($25\\text{-hidroxilasa}$):</strong> $\\text{Vitamina D}_3 \\rightarrow 25\\text{-(OH)D}_3 \\text{ (Calcidiol)}$</div>
+                            <div>3. <strong>Riñón ($1\\alpha\\text{-hidroxilasa}$ regulada por $\\text{PTH}$):</strong> $1,25\\text{-(OH)}_2\\text{D}_3 \\text{ (Calcitriol activo)}$</div>
+                        </div>
+                        <p class="leading-relaxed">
+                            <strong>Acción Fisiológica Final:</strong> El <em>calcitriol</em> estimula la síntesis de calbindina en el enterocito duodenal, incrementando la <strong>absorción intestinal de $\\text{Ca}^{2+}$ y fosfato ($\\text{PO}_4^{3-}$)</strong> indispensable para la mineralización de la matriz ósea (su déficit causa raquitismo en niños y osteomalacia en adultos).
+                        </p>
+                    </div>
+                `
+            },
+            excrecion: {
+                title: 'Excreción Transcutánea vs. Absorción Transdérmica Selectiva',
+                html: `
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <strong class="text-sky-800 block mb-1"><i class="fa-solid fa-droplet-slash mr-1"></i> Excreción Sudoral (Eliminación Hidroelectrolítica y Nitrogenada):</strong>
+                            A través del sudor ecrino, el tegumento colabora en la eliminación de <strong>agua ($99\\%$), electrolitos ($\\text{Na}^+, \\text{Cl}^-, \\text{K}^+$)</strong> y catabolitos metabólicos como <strong>urea, ácido úrico, amoníaco y ácido láctico</strong>.
+                        </div>
+                        <div class="p-3 rounded-lg bg-white border border-slate-200">
+                            <strong class="text-emerald-800 block mb-1"><i class="fa-solid fa-prescription-bottle-medical mr-1"></i> Absorción Transdérmica Selectiva:</strong>
+                            Debido al cemento lipídico del estrato córneo, la piel es casi impermeable al agua y soluciones hidrofílicas, pero permite la difusión pasiva de <strong>sustancias liposolubles (lipofílicas)</strong> de bajo peso molecular:
+                            <ul class="list-disc list-inside mt-1 space-y-0.5 text-xs">
+                                <li>Vitaminas liposolubles ($\\text{A, D, E, K}$) y gases respiratorios ($\\text{O}_2, \\text{CO}_2$).</li>
+                                <li>Fármacos en parches transdérmicos (estradiol, testosterona, nicotina, nitroglicerina, fentanilo) y glucocorticoides tópicos.</li>
+                                <li>Tóxicos orgánicos lipofílicos (solventes como acetona o tetracloruro de carbono, insecticidas organofosforados).</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            sensibilidad: {
+                title: 'Vigilancia Neurosensorial Cutánea',
+                html: `
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-700">
+                        <p class="leading-relaxed">
+                            La piel funciona como un extenso órgano receptor exterocepcionador conectado con el ganglio anexo a la raíz dorsal medular y el núcleo trigeminal:
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="p-2.5 rounded-lg bg-white border border-slate-200">
+                                <strong>Mecanorreceptores táctiles y de presión:</strong> Corpúsculos de Meissner, Discos de Merkel, Corpúsculos de Pacini, Corpúsculos de Ruffini y plexos peritriquiales.
+                            </li>
+                            <li class="p-2.5 rounded-lg bg-white border border-slate-200">
+                                <strong>Termorreceptores:</strong> Terminaciones libres con canales $\\text{TRP}$ sensibles al frío ($10\\text{--}35^\\circ\\text{C}$, fibras $A\\delta$) y al calor ($30\\text{--}43^\\circ\\text{C}$, fibras $C$).
+                            </li>
+                            <li class="p-2.5 rounded-lg bg-white border border-slate-200">
+                                <strong>Nociceptores (Dolor y Prurito):</strong> Terminaciones nerviosas libres desprovistas de cápsula conectiva que responden a extremos mecánicos, térmicos ($>45^\\circ\\text{C}$) o mediadores inflamatorios (histamina, bradicinina, prostaglandinas, $\\text{H}^+$).
+                            </li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        function selectPhysioFunction(fnKey) {
+            ['barrera', 'vitd', 'excrecion', 'sensibilidad'].forEach(k => {
+                const btn = document.getElementById('fn-btn-' + k);
+                if (k === fnKey) {
+                    btn.className = 'p-2.5 rounded-xl border text-left transition bg-derma-700 text-white border-derma-700 shadow-sm';
+                } else {
+                    btn.className = 'p-2.5 rounded-xl border text-left transition bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100';
+                }
+            });
+
+            const container = document.getElementById('physio-function-content');
+            const data = physioFunctionsData[fnKey];
+            container.innerHTML = `
+                <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base border-b border-slate-200 pb-2">${data.title}</h4>
+                ${data.html}
+            `;
+            renderLatexInElement(container);
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 2: EPIDERMAL STRATA DATA & LOGIC
+        // -------------------------------------------------------------------------
+        const strataData = {
+            basal: {
+                order: 'Estrato 1 (Más Profundo)',
+                name: 'Estrato Basal o Germinativo',
+                progress: '20%',
+                histology: 'Monocapa simple de células cúbicas a cilíndricas bajas intensamente basófilas apoyadas sobre la membrana basal mediante <strong>hemidesmosomas</strong> (integrinas $\\alpha_6\\beta_4$) y unidas lateralmente por desmosomas.',
+                features: [
+                    '<strong>Actividad Mitótica Intensa:</strong> Contiene las células madre epidérmicas unipotentes que dividen continuamente para renovar los estratos superiores.',
+                    '<strong>Citoesqueleto:</strong> Expresa filamentos intermedios de citoqueratina basal ($\\text{CK5}$ y $\\text{CK14}$).',
+                    '<strong>Poblaciones Asociadas:</strong> Aloja los somas de los <strong>melanocitos</strong> (síntesis de melanina) y las <strong>células de Merkel</strong> (mecanorreceptores de tacto continuo).'
+                ]
+            },
+            espinoso: {
+                order: 'Estrato 2 (Intermedio Profundo)',
+                name: 'Estrato Espinoso (Capa de Malpighi)',
+                progress: '40%',
+                histology: 'Formado por $4\\text{ a }10$ capas de queratinocitos poliédricos más grandes. Al retraerse el citoplasma durante la fijación histológica, sus múltiples uniones intercelulares permanecen ancladas dando un aspecto microscópico de "espinas".',
+                features: [
+                    '<strong>Abundantes Desmosomas:</strong> Nodos de Bizzozero donde convergen haces de tonofilamentos de queratina ($\\text{CK1}$ y $\\text{CK10}$) para resistir fuerzas de fricción.',
+                    '<strong>Inicio de Cuerpos Laminares:</strong> En sus capas superiores comienzan a sintetizarse los gránulos revestidos de membrana (cuerpos de Odland).',
+                    '<strong>Vigilancia Inmunitaria:</strong> Sede principal de las <strong>Células de Langerhans</strong> (macrófagos presentadores de antígeno derivados de la médula ósea).'
+                ]
+            },
+            granuloso: {
+                order: 'Estrato 3 (Transición Apoptótica)',
+                name: 'Estrato Granuloso',
+                progress: '65%',
+                histology: 'Compuesto por $3\\text{ a }5$ capas de queratinocitos aplanados con núcleos en condensación (picnosis). Es la capa más intensamente basófila del epitelio.',
+                features: [
+                    '<strong>Gránulos de Queratohialina:</strong> Inclusiones citoplasmáticas basófilas no rodeadas de membrana ricas en <em>profilagrina</em> y <em>loricrina</em> que agregan los filamentos de queratina en macrofibrillas compactas.',
+                    '<strong>Cuerpos Laminares (de Odland):</strong> Liberan por exocitosis un cemento lipídico intercelular (ceramidas y colesterol) que forma la <strong>barrera impermeable al agua</strong>.',
+                    '<strong>Apoptosis Programada:</strong> La barrera lipídica aísla a las células superiores de la difusión nutricia dérmica, desencadenando la degradación enzimática del núcleo y las organelas.'
+                ]
+            },
+            lucido: {
+                order: 'Estrato 4 (Exclusivo Piel Gruesa)',
+                name: 'Estrato Lúcido',
+                progress: '82%',
+                histology: 'Delgada zona de transición ($3\\text{ a }5$ capas celulares) de aspecto homogéneo, translúcido, refringente y fuertemente <strong>eosinófilo</strong>.',
+                features: [
+                    '<strong>Localización Exclusiva:</strong> Presente <strong>únicamente en piel gruesa</strong> (palmas de las manos y plantas de los pies), ausente en piel fina.',
+                    '<strong>Estado Celular:</strong> Queratinocitos aplanados ya desprovistos de núcleo y organelas citoplasmáticas.',
+                    '<strong>Eleidina:</strong> Citoplasma densamente empaquetado con filamentos de queratina inmersos en eleidina (producto de transformación de la queratohialina).'
+                ]
+            },
+            corneo: {
+                order: 'Estrato 5 (Superficial)',
+                name: 'Estrato Córneo',
+                progress: '100%',
+                histology: 'Constituido por $15\\text{ a }30$ capas en piel fina y hasta más de $50$ capas en piel gruesa de células planas, muertas y queratinizadas denominadas <strong>corneocitos (escamas córneas)</strong>.',
+                features: [
+                    '<strong>Corneocitos Anucleados:</strong> Células sin núcleo ni organelas, rellenas casi exclusivamente por queratina blanda de alto peso molecular rodeada por una envoltura cornificada insoluble.',
+                    '<strong>Modelo "Ladrillos y Cemento":</strong> Los corneocitos (ladrillos) están sellados por la bicapa lipídica extracelular de ceramidas (cemento).',
+                    '<strong>Descamación Fisiológica Continua:</strong> En la superficie (<em>estrato disjunto</em>), enzimas proteolíticas degradan los corneodesmosomas permitiendo el desprendimiento constante de escamas.'
+                ]
+            }
+        };
+
+        function selectStratum(stratumKey) {
+            const data = strataData[stratumKey];
+            const box = document.getElementById('stratum-detail-box');
+            const bar = document.getElementById('stratum-progress-bar');
+
+            // Highlight SVG stratum
+            ['basal', 'espinoso', 'granuloso', 'lucido', 'corneo'].forEach(k => {
+                const el = document.getElementById('stratum-' + k);
+                if (k === stratumKey) {
+                    el.style.opacity = '1';
+                    el.style.filter = 'drop-shadow(0 4px 8px rgba(79, 70, 229, 0.35))';
+                } else {
+                    el.style.opacity = '0.5';
+                    el.style.filter = 'none';
+                }
+            });
+
+            bar.style.width = data.progress;
+
+            box.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-900 font-bold text-xs">${data.order}</span>
+                    <span class="text-xs font-mono text-slate-500">H&amp;E 400x</span>
+                </div>
+                <h3 class="text-xl font-display font-bold text-slate-900">${data.name}</h3>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                    ${data.histology}
+                </p>
+                <div class="space-y-2 pt-1">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Eventos Citológicos y Funcionales:</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        ${data.features.map(f => `<li class="flex items-start gap-2"><i class="fa-solid fa-microscope text-indigo-600 mt-1 text-xs"></i><span>${f}</span></li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            renderLatexInElement(box);
+        }
+
+        function toggleSkinThickness(mode) {
+            const lucido = document.getElementById('stratum-lucido');
+            const btnGruesa = document.getElementById('btn-skin-gruesa');
+            const btnFina = document.getElementById('btn-skin-fina');
+
+            if (mode === 'gruesa') {
+                lucido.style.display = 'block';
+                btnGruesa.className = 'px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-sm transition';
+                btnFina.className = 'px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition';
+                selectStratum('lucido');
+            } else {
+                lucido.style.display = 'none';
+                btnFina.className = 'px-3 py-1.5 rounded-md bg-white text-slate-900 shadow-sm transition';
+                btnGruesa.className = 'px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition';
+                selectStratum('granuloso');
+            }
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 3: DERMOEPIDERMAL JUNCTION SHEAR SIMULATOR
+        // -------------------------------------------------------------------------
+        function updateUDEShear(val) {
+            const force = parseInt(val, 10);
+            const label = document.getElementById('ude-shear-label');
+            const topGroup = document.getElementById('ude-top-shift');
+            const bmPath = document.getElementById('ude-bm-path');
+
+            label.innerHTML = `Cizallamiento: $${force}\\text{ N/cm}^2$`;
+            renderLatexInElement(label);
+
+            const shiftPx = (force * 0.45).toFixed(1);
+            topGroup.style.transform = `translateX(${shiftPx}px) skewX(${(force * 0.25).toFixed(1)}deg)`;
+            bmPath.style.stroke = force > 18 ? '#e11d48' : '#38bdf8';
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 4: SENSORY RECEPTORS & OSCILLOSCOPE DATA
+        // -------------------------------------------------------------------------
+        const receptorsData = {
+            meissner: {
+                name: 'Corpúsculo de Meissner',
+                type: 'Mecanorreceptor Encapsulado',
+                location: 'Papilas dérmicas de la dermis papilar (especialmente abundante en piel lampiña: pulpejos de los dedos, palmas, plantas y labios).',
+                adaptation: 'Adaptación Rápida (Fásico · Tipo $\\text{RAI}$)',
+                modality: '<strong>Tacto fino discriminativo dinámico</strong>, roce suave y vibraciones mecánicas de baja frecuencia ($5\\text{--}50\\text{ Hz}$). Permite leer el sistema Braille.',
+                morphology: 'Estructura ovoide formada por células de Schwann laminares apiladas horizontalmente rodeadas por una cápsula conectiva fina, entre las cuales serpentean terminaciones axónicas aferentes $A\\beta$.',
+                spikePath: 'M 10 75 L 55 75 L 60 15 L 65 85 L 70 75 L 78 15 L 83 85 L 88 75 L 96 15 L 101 85 L 106 75 L 310 75 L 315 20 L 320 85 L 325 75 L 390 75'
+            },
+            pacini: {
+                name: 'Corpúsculo de Vater-Pacini',
+                type: 'Mecanorreceptor Encapsulado Laminar',
+                location: 'Dermis reticular profunda, hipodermis (tejido celular subcutáneo), periostio, mesenterio y cápsulas articulares.',
+                adaptation: 'Adaptación Muy Rápida (Fásico · Tipo $\\text{RAII}$)',
+                modality: '<strong>Presión mecánica profunda</strong> y <strong>vibraciones de alta frecuencia</strong> ($60\\text{--}400\\text{ Hz}$).',
+                morphology: 'Gran corpúsculo ovalado ($1\\text{--}2\\text{ mm}$) con aspecto de <strong>"catáfilas de cebolla"</strong> al corte histológico, constituido por $20\\text{ a }60$ láminas concéntricas de células tipo fibroblasto separadas por líquido intersticial alrededor de un axón central mielínico $A\\beta$.',
+                spikePath: 'M 10 75 L 55 75 L 58 10 L 62 88 L 66 15 L 70 85 L 74 75 L 310 75 L 314 12 L 318 88 L 322 75 L 390 75'
+            },
+            merkel: {
+                name: 'Discos / Complejos de Merkel',
+                type: 'Mecanorreceptor No Encapsulado',
+                location: 'Estrato basal de la epidermis (piel sensible, pulpejos dactilares y folículos pilosos).',
+                adaptation: 'Adaptación Lenta (Tónico · Tipo $\\text{SAI}$)',
+                modality: '<strong>Tacto continuo estático</strong>, presión ligera sostenida y percepción detallada de forma, bordes y textura.',
+                morphology: 'Complejo sináptico formado por una célula epitelial especializada del estrato basal (Célula de Merkel, con gránulos neuroendocrinos densos) apoyada sobre una terminación nerviosa aferente expandida en forma de disco.',
+                spikePath: 'M 10 75 L 55 75 L 60 15 L 65 85 L 70 75 L 82 15 L 87 85 L 92 75 L 110 15 L 115 85 L 120 75 L 145 18 L 150 85 L 155 75 L 185 18 L 190 85 L 195 75 L 225 20 L 230 85 L 235 75 L 265 20 L 270 85 L 275 75 L 305 22 L 310 85 L 315 75 L 390 75'
+            },
+            ruffini: {
+                name: 'Corpúsculo de Ruffini',
+                type: 'Mecanorreceptor Encapsulado Fusiforme',
+                location: 'Dermis reticular profunda y cápsulas articulares.',
+                adaptation: 'Adaptación Lenta (Tónico · Tipo $\\text{SAII}$)',
+                modality: '<strong>Estiramiento continuo de la piel</strong>, tensión dérmica sostenida y deslizamiento de objetos sobre la superficie cutánea.',
+                morphology: 'Huso alargado con una cápsula conectiva delgada atravesada por haces de fibras de colágeno dérmico que se entrelazan con las arborizaciones dendríticas de una fibra aferente $A\\beta$.',
+                spikePath: 'M 10 75 L 55 75 L 65 20 L 70 85 L 75 75 L 105 22 L 110 85 L 115 75 L 150 22 L 155 85 L 160 75 L 195 25 L 200 85 L 205 75 L 245 25 L 250 85 L 255 75 L 295 25 L 300 85 L 305 75 L 390 75'
+            },
+            libres: {
+                name: 'Terminaciones Nerviosas Libres',
+                type: 'Receptor No Encapsulado (Nociceptor / Termorreceptor)',
+                location: 'Ramificadas en la dermis papilar y penetrando de forma intraepitelial en la epidermis hasta el estrato granuloso.',
+                adaptation: 'Adaptación Muy Lenta / No Adaptativa (Tónico)',
+                modality: '<strong>Nocicepción (dolor agudo y crónico)</strong>, <strong>temperatura (frío y calor)</strong>, prurito (picazón) y cosquilleo.',
+                morphology: 'Ramificaciones terminales desnudas de fibras mielínicas finas ($A\\delta$, dolor rápido punzante y frío) y fibras amielínicas ($C$, dolor urente lento y calor) que carecen de cápsula conectiva o células de Schwann en sus extremos.',
+                spikePath: 'M 10 75 L 55 75 L 62 12 L 66 85 L 70 75 L 88 12 L 92 85 L 96 75 L 118 12 L 122 85 L 126 75 L 148 12 L 152 85 L 156 75 L 178 12 L 182 85 L 186 75 L 208 12 L 212 85 L 216 75 L 238 12 L 242 85 L 246 75 L 268 12 L 272 85 L 276 75 L 298 12 L 302 85 L 306 75 L 390 75'
+            },
+            piloso: {
+                name: 'Receptor del Complejo Piloso (Plexo Peritriquial)',
+                type: 'Mecanorreceptor No Encapsulado Folicular',
+                location: 'Rodeando en espiral el bulbo y la vaina radicular externa de los folículos pilosos en la dermis.',
+                adaptation: 'Adaptación Rápida (Fásico)',
+                modality: 'Detecta la <strong>deflexión o desplazamiento mecánico inicial del tallo piloso</strong> (contacto leve, brisa o insectos sobre el vello).',
+                morphology: 'Red de terminaciones nerviosas libres que envuelven circunferencialmente el folículo piloso; descargan mientras el pelo está en movimiento, pero cesan si el pelo permanece doblado estáticamente.',
+                spikePath: 'M 10 75 L 55 75 L 60 15 L 65 85 L 70 75 L 78 18 L 83 85 L 88 75 L 310 75 L 315 18 L 320 85 L 325 75 L 390 75'
+            }
+        };
+
+        function selectReceptor(recKey) {
+            const data = receptorsData[recKey];
+
+            // Update buttons & ripples
+            ['meissner', 'pacini', 'merkel', 'ruffini', 'libres', 'piloso'].forEach(k => {
+                const btn = document.getElementById('rec-btn-' + k);
+                const ripple = document.getElementById('ripple-' + k);
+                if (k === recKey) {
+                    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-derma-700 text-white transition shadow-sm';
+                    if (ripple) ripple.classList.remove('hidden');
+                } else {
+                    btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+                    if (ripple) ripple.classList.add('hidden');
+                }
+            });
+
+            // Update Oscilloscope
+            document.getElementById('osc-spike-path').setAttribute('d', data.spikePath);
+            const oscBadge = document.getElementById('osc-adaptation-badge');
+            oscBadge.innerHTML = data.adaptation;
+            renderLatexInElement(oscBadge);
+
+            // Update Detail Card
+            const card = document.getElementById('receptor-detail-card');
+            card.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-1 rounded-md bg-sky-100 text-sky-900 font-bold text-xs">${data.type}</span>
+                    <i class="fa-solid fa-bolt-lightning text-amber-500"></i>
+                </div>
+                <h3 class="text-xl font-display font-bold text-slate-900">${data.name}</h3>
+                <div class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5"><i class="fa-solid fa-location-dot text-vascular-600 mr-1"></i> Ubicación Histológica:</strong>
+                        ${data.location}
+                    </div>
+                    <div class="p-3 rounded-xl bg-derma-50/70 border border-derma-200">
+                        <strong class="text-derma-900 block mb-0.5"><i class="fa-solid fa-hand-pointer text-derma-600 mr-1"></i> Modalidad Sensorial Captada:</strong>
+                        ${data.modality}
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <strong class="text-slate-900 block mb-0.5"><i class="fa-solid fa-microscope text-indigo-600 mr-1"></i> Morfología Microscópica:</strong>
+                        ${data.morphology}
+                    </div>
+                </div>
+            `;
+            renderLatexInElement(card);
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 5: PILOERECTION SIMULATOR & APPENDAGES DATA
+        // -------------------------------------------------------------------------
+        let isPiloerected = false;
+        function togglePiloerection() {
+            isPiloerected = !isPiloerected;
+            const follicleGrp = document.getElementById('pilo-follicle-group');
+            const muscle = document.getElementById('pilo-muscle');
+            const surface = document.getElementById('pilo-skin-surface');
+            const airLayer = document.getElementById('pilo-air-layer');
+            const sebumDrop = document.getElementById('pilo-sebum-drop');
+            const btn = document.getElementById('btn-piloerection');
+            const statusText = document.getElementById('pilo-status-text');
+
+            if (isPiloerected) {
+                follicleGrp.style.transform = 'rotate(0deg)';
+                muscle.setAttribute('d', 'M 228 210 L 340 120 L 358 134 L 240 230 Z');
+                muscle.setAttribute('fill', '#be123c');
+                surface.setAttribute('d', 'M 20 85 L 210 85 Q 245 64 280 85 L 480 85 L 480 120 L 20 120 Z');
+                airLayer.style.opacity = '1';
+                sebumDrop.setAttribute('cy', '88');
+                sebumDrop.setAttribute('r', '7');
+                sebumDrop.setAttribute('opacity', '1');
+
+                btn.className = 'px-3.5 py-2 rounded-xl bg-vascular-600 hover:bg-vascular-700 text-white text-xs font-bold flex items-center gap-2 shadow-sm transition';
+                btn.innerHTML = `<i class="fa-solid fa-rotate-left"></i> <span>Relajar Músculo Erector (Estado Basal)</span>`;
+
+                statusText.innerHTML = `
+                    <strong class="text-vascular-700">Reflejo de Piloerección Activo (Cutis Anserina / "Piel de Gallina"):</strong> Ante el frío ambiental o descarga simpática adrenérgica emocional, el <strong>músculo liso erector del pelo</strong> se contrae, traccionando el folículo piloso hacia la vertical ($90^\\circ$) y deprimiendo la epidermis de inserción. Esto <strong>atrapa una capa de aire estacionario aislante</strong> sobre la superficie y comprime mecánicamente el acino de la glándula sebácea favoreciendo la expulsión de sebo.
+                `;
+            } else {
+                follicleGrp.style.transform = 'rotate(-24deg)';
+                muscle.setAttribute('d', 'M 220 220 L 365 120 L 378 128 L 228 235 Z');
+                muscle.setAttribute('fill', '#e11d48');
+                surface.setAttribute('d', 'M 20 85 L 210 85 Q 245 85 280 85 L 480 85 L 480 120 L 20 120 Z');
+                airLayer.style.opacity = '0';
+                sebumDrop.setAttribute('cy', '115');
+                sebumDrop.setAttribute('r', '5');
+                sebumDrop.setAttribute('opacity', '0.4');
+
+                btn.className = 'px-3.5 py-2 rounded-xl bg-derma-700 hover:bg-derma-800 text-white text-xs font-bold flex items-center gap-2 shadow-sm transition';
+                btn.innerHTML = `<i class="fa-solid fa-bolt"></i> <span>Activar Estímulo Adrenérgico / Frío</span>`;
+
+                statusText.innerHTML = `
+                    <strong>Estado Basal (Relajado):</strong> El tallo piloso emerge con una inclinación oblicua fisiológica. El músculo liso erector del pelo se inserta desde la dermis papilar hasta la vaina conectiva del folículo por debajo de la glándula sebácea.
+                `;
+            }
+            renderLatexInElement(statusText);
+        }
+
+        const appendagesData = {
+            sebacea: {
+                title: 'Glándulas Sebáceas (Secreción Holocrina)',
+                badge: 'Acinos Ramificados · Unidad Pilosebácea',
+                html: `
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Glándulas acinares ramificadas situadas en la dermis que desembocan mediante un conducto corto directamente en el cuello (infundíbulo) del folículo piloso. Están presentes en toda la piel <strong>excepto en palmas de las manos y plantas de los pies</strong>.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-vial text-amber-600 mt-1"></i><span><strong>Mecanismo Holocrino:</strong> Los sebocitos sintetizan y acumulan gotas lipídicas hasta sufrir apoptosis completa; toda la célula desintegrada constituye el producto de secreción (<strong>sebo</strong>).</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-shield-heart text-amber-600 mt-1"></i><span><strong>Funciones del Sebo:</strong> Mezcla de triglicéridos, ésteres céreos, escualeno y colesterol que lubrica el pelo y el estrato córneo, impermeabiliza la piel y posee acción <strong>bacteriostática y fungistática</strong> (contribuye al manto ácido $\\text{pH } 4.5\\text{--}5.5$).</span></li>
+                    </ul>
+                `
+            },
+            ecrina: {
+                title: 'Glándulas Sudoríparas Ecrinas (Merocrinas)',
+                badge: 'Tubulares Simples Glomerulares · Termorregulación',
+                html: `
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Glándulas tubulares simples enrolladas cuyo adenómero (glomérulo secretor) se ubica en la dermis profunda o hipodermis superficial, y cuyo conducto excretor atraviesa la dermis y epidermis para abrirse de forma independiente en el <strong>poro sudoríparo</strong> superficial.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-temperature-Half text-sky-600 mt-1"></i><span><strong>Termorregulación Primaria:</strong> Producen entre $500\\text{ mL/día}$ (basal) y hasta $10\\text{ L/día}$ en calor extremo de sudor hipotónico ($99\\% \\text{ H}_2\\text{O}, \\text{Na}^+, \\text{Cl}^-$, potasio, urea y ácido láctico).</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-brain text-sky-600 mt-1"></i><span><strong>Inervación Excepcional:</strong> Inervadas por fibras postganglionares <strong>simpáticas colinérgicas</strong> (neurotransmisor: acetilcolina sobre receptores muscarínicos $\\text{M}_3$).</span></li>
+                    </ul>
+                `
+            },
+            apocrina: {
+                title: 'Glándulas Sudoríparas Apocrinas (Odoríferas)',
+                badge: 'Axilares, Inguinales y Areolares · Pubertad',
+                html: `
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Glándulas tubulares glomerulares de luz amplia restringidas a regiones específicas (axilas, región anogenital, pubis, areola mamaria) que <strong>desembocan en el folículo piloso</strong> por encima de la glándula sebácea.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-flask text-purple-600 mt-1"></i><span><strong>Composición Bioquímica:</strong> Secreción viscosa y lechosa rica en proteínas, lípidos, carbohidratos, <strong>amoníaco y feromonas esteroideas</strong>. Inicialmente inodora, adquiere olor característico (bromhidrosis) al ser metabolizada por bacterias corineformes cutáneas.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-dna text-purple-600 mt-1"></i><span><strong>Regulación Hormonal y Nerviosa:</strong> Permanecen inactivas hasta la <strong>pubertad</strong> (estimuladas por hormonas sexuales) y responden al estrés emocional mediante inervación simpática adrenérgica.</span></li>
+                    </ul>
+                `
+            },
+            unas: {
+                title: 'Aparato Ungueal (Uñas)',
+                badge: 'Placas de Queratina Dura ($\\alpha\\text{-queratina}$ rica en azufre)',
+                html: `
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Placas córneas convexas situadas en la cara dorsal de las falanges distales de los dedos de manos y pies. A diferencia del estrato córneo epidérmico, contienen <strong>queratina dura</strong> (con alto contenido del aminoácido cistina y puentes disulfuro) que <strong>no sufre descamación</strong>.
+                    </p>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-hand-sparkles text-rose-600 mt-1"></i><span><strong>Anatomía Histológica:</strong> Compuestas por la <strong>raíz ungueal</strong> (oculta bajo el pliegue proximal), la <strong>matriz ungueal</strong> proliferativa (visible parcialmente como la <em>lúnula</em> blanquecina), el <strong>cuerpo o placa ungueal</strong> (reposando sobre el lecho ungueal epidérmico), el <strong>eponiquio</strong> (cutícula) y el <strong>hiponiquio</strong> distal.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-compass-drafting text-rose-600 mt-1"></i><span><strong>Funciones:</strong> Protección mecánica del extremo distal digital, contrapresión para la sensibilidad táctil pulpar (discriminación de Merkel/Meissner) y pinza fina para manipular objetos pequeños.</span></li>
+                    </ul>
+                `
+            }
+        };
+
+        function selectAppendageTab(tabKey) {
+            ['sebacea', 'ecrina', 'apocrina', 'unas'].forEach(k => {
+                const btn = document.getElementById('app-tab-' + k);
+                if (k === tabKey) {
+                    btn.className = 'p-2.5 rounded-xl text-xs font-bold bg-amber-600 text-white shadow-sm transition';
+                } else {
+                    btn.className = 'p-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+                }
+            });
+
+            const container = document.getElementById('appendage-detail-content');
+            const data = appendagesData[tabKey];
+            container.innerHTML = `
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
+                    <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base">${data.title}</h4>
+                    <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[11px] font-semibold">${data.badge}</span>
+                </div>
+                ${data.html}
+            `;
+            renderLatexInElement(container);
+        }
+
+        // -------------------------------------------------------------------------
+        // MODULE 6: INTERACTIVE QUIZ (MEDICINE ENTRANCE UCCUYO)
+        // -------------------------------------------------------------------------
+        const quizQuestions = [
+            {
+                q: '1. Con respecto a la organización histológica y embriológica del sistema tegumentario, señale la opción CORRECTA:',
+                options: [
+                    'La epidermis deriva del mesodermo y presenta una rica red capilar en el estrato espinoso.',
+                    'La piel representa el 7–8% del peso corporal y sus dos capas constitutivas verdaderas son la epidermis (ectodérmica, avascular) y la dermis (mesodérmica, vascularizada).',
+                    'La hipodermis es la capa más profunda de la dermis y carece de tejido adiposo.',
+                    'El estrato lúcido se observa en toda la superficie corporal excepto en palmas y plantas.'
+                ],
+                correct: 1,
+                explanation: 'Correcto. El órgano cutáneo representa el $7\\text{--}8\\%$ del peso corporal total y consta de dos capas verdaderas: la epidermis superficial (epitelio plano estratificado queratinizado, avascular, de origen ectodérmico) y la dermis profunda (tejido conectivo vascularizado de origen mesodérmico). La hipodermis es el tejido celular subcutáneo subyacente.'
+            },
+            {
+                q: '2. ¿En qué estrato epidérmico se acumulan gránulos intracitoplasmáticos de queratohialina, se exocitan los cuerpos laminares lipídicos impermeabilizantes y se inicia la pérdida apoptótica del núcleo?',
+                options: [
+                    'Estrato Basal o Germinativo',
+                    'Estrato Espinoso de Malpighi',
+                    'Estrato Granuloso',
+                    'Estrato Córneo'
+                ],
+                correct: 2,
+                explanation: 'Correcto. En el estrato granuloso los queratinocitos acumulan gránulos basófilos de queratohialina (filagrina) y liberan por exocitosis los cuerpos laminares (ceramidas) que sellan el espacio intercelular contra el paso de agua, aislando a las células superiores de la nutrición dérmica e iniciando la degradación programada de sus núcleos y organelas.'
+            },
+            {
+                q: '3. ¿Cuál de las siguientes poblaciones celulares epidérmicas tiene origen mesodérmico (médula ósea), se localiza predominantemente en el estrato espinoso y actúa como célula presentadora de antígenos?',
+                options: [
+                    'Melanocitos',
+                    'Células de Merkel',
+                    'Queratinocitos basales',
+                    'Células de Langerhans'
+                ],
+                correct: 3,
+                explanation: 'Correcto. Las células de Langerhans son macrófagos dendríticos derivados de precursores de la médula ósea (origen mesodérmico) que residen en el estrato espinoso, poseen gránulos de Birbeck y cumplen funciones de vigilancia inmunológica captando y presentando antígenos a los linfocitos $\\text{T}$.'
+            },
+            {
+                q: '4. Durante un examen físico neurológico se evalúa la sensibilidad vibratoria de alta frecuencia (diapasón de 256 Hz) y la presión profunda. ¿Qué mecanorreceptor cutáneo encapsulado profundo es el principal responsable de esta modalidad?',
+                options: [
+                    'Corpúsculos de Pacini (dermis profunda e hipodermis)',
+                    'Corpúsculos de Meissner (papilas dérmicas)',
+                    'Discos de Merkel (estrato basal epidérmico)',
+                    'Terminaciones nerviosas libres intraepidérmicas'
+                ],
+                correct: 0,
+                explanation: 'Correcto. Los corpúsculos de Vater-Pacini son mecanorreceptores encapsulados de adaptación muy rápida localizados en la dermis reticular profunda y la hipodermis, especializados en detectar presión mecánica profunda y vibraciones de alta frecuencia ($60\\text{--}400\\text{ Hz}$).'
+            },
+            {
+                q: '5. Respecto a la fisiología de los anexos tegumentarios y la termorregulación cutánea, indique la afirmación VERDADERA:',
+                options: [
+                    'Las glándulas sebáceas secretan sudor hipotónico por exocitosis merocrina en las palmas de las manos.',
+                    'Ante el frío ambiental se produce vasodilatación de las asas capilares superficiales para retener calor central.',
+                    'Las glándulas sudoríparas apocrinas desembocan en el folículo piloso y secretan un fluido viscoso con feromonas y amoníaco a partir de la pubertad.',
+                    'El músculo erector del pelo está formado por fibras musculares estriadas esqueléticas voluntarias.'
+                ],
+                correct: 2,
+                explanation: 'Correcto. Las glándulas sudoríparas apocrinas (axilares, inguinales, areolares) desembocan en el infundíbulo del folículo piloso y producen una secreción viscosa que al degradarse libera feromonas y amoníaco. Las glándulas sebáceas tienen secreción holocrina de sebo, y el músculo erector del pelo es músculo liso involuntario con inervación simpática.'
+            }
+        ];
+
+        let userAnswers = Array(quizQuestions.length).fill(null);
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = quizQuestions.map((item, qIdx) => `
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+                    <h3 class="font-display font-bold text-slate-900 text-sm sm:text-base">${item.q}</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        ${item.options.map((opt, oIdx) => {
+                            let btnStyle = 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700';
+                            let iconHtml = '<i class="fa-regular fa-circle text-slate-400"></i>';
+                            if (userAnswers[qIdx] !== null) {
+                                if (oIdx === item.correct) {
+                                    btnStyle = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold';
+                                    iconHtml = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
+                                } else if (oIdx === userAnswers[qIdx]) {
+                                    btnStyle = 'border-rose-500 bg-rose-50 text-rose-900 font-semibold';
+                                    iconHtml = '<i class="fa-solid fa-circle-xmark text-rose-600"></i>';
+                                } else {
+                                    btnStyle = 'border-slate-200 bg-slate-50 opacity-50 text-slate-500';
+                                }
+                            }
+                            return `
+                                <button onclick="answerQuestion(${qIdx}, ${oIdx})" ${userAnswers[qIdx] !== null ? 'disabled' : ''} 
+                                        class="p-3.5 rounded-xl border text-left text-xs sm:text-sm transition flex items-start gap-2.5 ${btnStyle}">
+                                    <span class="mt-0.5">${iconHtml}</span>
+                                    <span>${opt}</span>
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+                    <div id="quiz-exp-${qIdx}" class="${userAnswers[qIdx] !== null ? 'block' : 'hidden'} p-3.5 rounded-xl bg-derma-50 border border-derma-200 text-xs text-slate-700 leading-relaxed">
+                        <strong class="text-derma-900 block mb-0.5"><i class="fa-solid fa-graduation-cap mr-1"></i> Fundamentación Académica:</strong>
+                        ${item.explanation}
+                    </div>
+                </div>
+            `).join('');
+
+            const score = userAnswers.reduce((acc, ans, idx) => acc + (ans === quizQuestions[idx].correct ? 1 : 0), 0);
+            document.getElementById('quiz-score-display').textContent = `${score} / ${quizQuestions.length}`;
+            renderLatexInElement(container);
+        }
+
+        function answerQuestion(qIdx, oIdx) {
+            if (userAnswers[qIdx] !== null) return;
+            userAnswers[qIdx] = oIdx;
+            
+        }
+
+        function resetQuiz() {
+            userAnswers = Array(quizQuestions.length).fill(null);
+            
+        }
+
+        // -------------------------------------------------------------------------
+        // INITIALIZATION ON LOAD
+        // -------------------------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', () => {
+            selectSkinLayer('all');
+            updateThermoregulation(24);
+            selectPhysioFunction('barrera');
+            selectStratum('basal');
+            selectReceptor('meissner');
+            selectAppendageTab('sebacea');
+            
+
+            // Render static LaTeX across the document
+            renderKaTeXMath();
+        });
+    
+    </script>
+</body>
+</html>
